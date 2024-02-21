@@ -25,11 +25,13 @@ const ResumePreview: React.FC = () => {
   );
   const summary = useSelector((state: RootState) => state.summary);
   const skills = useSelector((state: RootState) => state.skill);
-  const awardsAndAchievement = useSelector((state: RootState) => state.awardsAndAchievement);
+  const awardsAndAchievement = useSelector(
+    (state: RootState) => state.awardsAndAchievement
+  );
   const certification = useSelector((state: RootState) => state.certification);
   return (
     <Container>
-      <Box>
+      <Box id="resume-builder" p={2}>
         <Box sx={{ textAlign: "center" }}>
           <Typography variant="h4" color="primary.dark">
             {personalInfo?.firstName} {personalInfo?.lastName}
@@ -51,7 +53,7 @@ const ResumePreview: React.FC = () => {
         </Typography>
         <Divider />
 
-        <Box>
+        <Box sx={{ mt: 2 }}>
           <Typography variant="h6" color={"primary.dark"}>
             Career Objective
           </Typography>
@@ -65,9 +67,17 @@ const ResumePreview: React.FC = () => {
           {workExperience.entries.map(
             (entry: WorkExperienceEntry, index: number) => (
               <Typography key={index} variant="body2" sx={{ mt: 1 }}>
-                {dayjs(entry.start_date).format("MMeM YYYY")} -{" "}
+                {dayjs(entry.start_date).format("MMM YYYY")} -{" "}
                 {dayjs(entry.end_date).format("MMM YYYY")} {entry.designation}
-                {entry.company}, {entry.location}, {entry.roleDescription}
+                {entry.company}, {entry.location}
+                <List>
+                  {Array.isArray(entry.roleDescription) &&
+                    entry.roleDescription.map(
+                      (description: string, idx: number) => (
+                        <ListItem key={idx}>{description}</ListItem>
+                      )
+                    )}
+                </List>
               </Typography>
             )
           )}
@@ -84,15 +94,16 @@ const ResumePreview: React.FC = () => {
               {entry.degree}, {entry.stream}, {entry.location}, CGPA:{" "}
               {entry.cgpa}
               <List>
-                {entry.descriptions?.map((description: string, idx: number) => (
-                  <ListItem key={idx}>{description}</ListItem>
-                ))}
+                {Array.isArray(entry.descriptions) &&
+                  entry.descriptions.map((description: string, idx: number) => (
+                    <ListItem key={idx}>{description}</ListItem>
+                  ))}
               </List>
             </Typography>
           ))}
         </Box>
 
-        <Box>
+        <Box sx={{ mt: 2 }}>
           <Typography variant="h6" color={"primary.dark"}>
             Skills
           </Typography>
@@ -100,7 +111,7 @@ const ResumePreview: React.FC = () => {
             return <Chip label={entry.skill} key={index} />;
           })}
         </Box>
-        <Box>
+        <Box sx={{ mt: 2 }}>
           <Typography variant="h6" color={"primary.dark"}>
             Awards and Recognition
           </Typography>
@@ -110,7 +121,7 @@ const ResumePreview: React.FC = () => {
             )
           )}
         </Box>
-        <Box>
+        <Box sx={{ mt: 2 }}>
           <Typography variant="h6" color={"primary.dark"}>
             Certification
           </Typography>

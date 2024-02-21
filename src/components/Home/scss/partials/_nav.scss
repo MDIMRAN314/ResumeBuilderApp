@@ -1,74 +1,73 @@
-@use '../partials/fontColorLib' as *;
+@use "../partials/fontColorLib" as *;
 
-#fullNavbar{
+#fullNavbar {
+  width: 100%;
+  height: 6rem;
+  display: flex;
+  align-items: center;
+  padding: 0 4rem;
+  gap: 5rem;
+  border-bottom: 0.08rem solid #efefef;
+}
+.logo {
+  width: 25%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+
+  img {
+    width: 70%;
+    object-fit: contain;
+  }
+}
+.menu {
+  height: 100%;
+  list-style: none;
+  ul {
+    @extend .menu;
     width: 100%;
-    height: 6rem;
     display: flex;
     align-items: center;
-    padding: 0 4rem;
-    gap: 5rem;
+    gap: 4rem;
+
+    li {
+      color: rgba(37, 37, 37, 0.864);
+      cursor: pointer;
+      padding-bottom: 0.4rem;
     }
-    .logo{
-    width: 25%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-        img {
-            height: 60%;
-            object-fit: contain;
-        }
+
+    li:hover {
+      border-bottom: 4px solid #ef59a5;
     }
-    .menu{
-    height: 100%;
-    list-style: none;
-        ul{
-        @extend .menu;
-        width: 100%;
-        display: flex;
-        align-items: center;
-        gap: 4rem;
-    
-            li{
-            
-            color: rgba(37, 37, 37, 0.864);
-            cursor: pointer;
-            padding-bottom: 0.4rem;
-            }
-    
-            li:hover {
-                border-bottom: 4px solid #ef59a5;
-            }
-        
-        }
+  }
+}
+.create-btn {
+  width: 20%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+
+  button {
+    position: relative;
+    padding: 0.7rem 0.5rem;
+    border-radius: 0.6rem;
+    background-color: transparent;
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: transparent;
+    cursor: pointer;
+    overflow: hidden;
+    background: $bg-color;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    border: 0.1rem solid #edd6e2;
+
+    &:hover {
+      background: $bg-color;
+      color: white;
+      border: none;
     }
-    .create-btn {
-    width: 20%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: end;
-    
-        button{
-            position: relative;
-            padding: 0.7rem 0.5rem;
-            border-radius: 0.6rem;
-            background-color: transparent;
-            font-size: 1.2rem;
-            font-weight: 500;
-            color: transparent;
-            cursor: pointer;
-            overflow: hidden; 
-            background: $bg-color;
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            border: 0.1rem solid #edd6e2;
-    
-            &:hover {
-                background:$bg-color;
-                color: white; 
-                border: none;
-            }
-    
-        }
-    }
+  }
+}

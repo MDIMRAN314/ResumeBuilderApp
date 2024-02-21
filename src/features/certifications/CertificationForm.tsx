@@ -1,11 +1,11 @@
 import { Box, Button, Chip, TextField } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "../../components/App/Store";
+import { RootState } from "../../../src/App/Store";
 import React, { useState } from "react";
 import { addCertifications, removeCertifications } from "./CertificationSlice";
 
 interface Entry {
-    certificate: string[];
+  certificate: string[];
 }
 
 const CertificationForm: React.FC = () => {
@@ -32,6 +32,7 @@ const CertificationForm: React.FC = () => {
     <Box sx={{ widtg: "100%" }}>
       <form>
         <TextField
+          size="small"
           id="certification"
           name="certification"
           label="Certificatiion Name"

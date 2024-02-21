@@ -7,6 +7,7 @@ export const Home = () => {
     <>
       <section className="main-container">
         <NavigationBar />
+        l
         <Banner />
         <TemplateSec />
       </section>

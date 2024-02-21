@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Box, TextField, Button, Chip } from "@mui/material";
-import { RootState } from "../../components/App/Store";
-import { addSkill, deleteSkill } from "./SkillsSlice";
+import { RootState } from "../../../src/App/Store";
+import { SkillsEntry, addSkill, deleteSkill } from "./SkillsSlice";
 
 const SkillsForm: React.FC = () => {
   const dispatch = useDispatch();
@@ -30,7 +30,7 @@ const SkillsForm: React.FC = () => {
     <Box sx={{ width: "100%" }}>
       <form>
         <Box sx={{ display: "flex", alignItems: "center", flexWrap: "wrap" }}>
-          {skills.entries.map((entry, index) => (
+          {skills.entries.map((entry: SkillsEntry, index: number) => (
             <Chip
               key={index}
               color="secondary"
@@ -48,6 +48,7 @@ const SkillsForm: React.FC = () => {
           }}
         >
           <TextField
+            size="small"
             id="skill-input"
             name="skill-input"
             label="Skill"

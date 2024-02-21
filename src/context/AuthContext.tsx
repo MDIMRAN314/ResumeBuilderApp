@@ -32,6 +32,7 @@ const initialState: AuthState = {
 
 const UserContextProvider = ({ children }: UserContextProviderProps) => {
   const [auth, dispatch] = useReducer(authReducer, initialState);
+  console.log(auth)
 
   const signup = async (payload: PayloadProps | null): Promise<void> => {
     try {
@@ -41,6 +42,7 @@ const UserContextProvider = ({ children }: UserContextProviderProps) => {
           payload
         );
         dispatch({ type: "SIGNUP", payload: data });
+        
       } else {
         console.error("Payload is null");
       }
@@ -59,7 +61,7 @@ const UserContextProvider = ({ children }: UserContextProviderProps) => {
     }
 
     const foundUser = users.find((user) => user.email === email);
-
+    console.log(foundUser)
     if (!foundUser) {
       toast.error("User with provided email does not exist");
       return false;

@@ -24,8 +24,12 @@ const workExperienceSlice = createSlice({
     addWorkExperience: (state, action: PayloadAction<WorkExperienceEntry>) => {
       state.entries.push(action.payload);
     },
-    editWorkExperience: (state, action: PayloadAction<{ index: number; entry: WorkExperienceEntry }>) => {
-      state.entries[action.payload.index] = action.payload.entry;
+    editWorkExperience: (
+      state,
+      action: PayloadAction<{ index: number; entry: WorkExperienceEntry }>
+    ) => {
+      const { index, entry } = action.payload;
+      state.entries[index] = entry;
     },
     deleteWorkExperience: (state, action: PayloadAction<number>) => {
       state.entries.splice(action.payload, 1);
@@ -36,5 +40,10 @@ const workExperienceSlice = createSlice({
   },
 });
 
-export const { addWorkExperience, editWorkExperience, deleteWorkExperience, clearWorkExperience } = workExperienceSlice.actions;
+export const {
+  addWorkExperience,
+  editWorkExperience,
+  deleteWorkExperience,
+  clearWorkExperience,
+} = workExperienceSlice.actions;
 export default workExperienceSlice.reducer;

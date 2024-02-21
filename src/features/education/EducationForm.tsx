@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Box, TextField, Button } from "@mui/material";
-import { RootState } from "../../components/App/Store";
+import { RootState } from "../../../src/App/Store";
 import { DatePicker, LocalizationProvider } from "@mui/x-date-pickers";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import dayjs, { Dayjs } from "dayjs";
@@ -44,7 +44,10 @@ const EducationForm: React.FC = () => {
     dispatch(
       editEducation({
         index,
-        entry: { ...education.entries[index], [id]: value },
+        entry: {
+          ...education.entries[index],
+          [id]: id === "descriptions" ? value.split("\n") : value,
+        },
       })
     );
   };
@@ -108,6 +111,7 @@ const EducationForm: React.FC = () => {
             </Box>
             <Box sx={{ mt: 2 }}>
               <TextField
+                size="small"
                 id={`degree-${index}`}
                 name={`degree-${index}`}
                 label="Degree"
@@ -117,36 +121,7 @@ const EducationForm: React.FC = () => {
                 onChange={(e) => handleChange(e, "degree", index)}
               />
               <TextField
-                id={`institution-${index}`}
-                name={`institution-${index}`}
-                label="Institution"
-                variant="outlined"
-                fullWidth
-                margin="normal"
-                value={entry.institution}
-                onChange={(e) => handleChange(e, "institution", index)}
-              />
-              <TextField
-                id={`university-${index}`}
-                name={`university-${index}`}
-                label="University"
-                variant="outlined"
-                fullWidth
-                margin="normal"
-                value={entry.university}
-                onChange={(e) => handleChange(e, "university", index)}
-              />
-              <TextField
-                id={`location-${index}`}
-                name={`location-${index}`}
-                label="Location"
-                variant="outlined"
-                fullWidth
-                margin="normal"
-                value={entry.location}
-                onChange={(e) => handleChange(e, "location", index)}
-              />
-              <TextField
+                size="small"
                 id={`stream-${index}`}
                 name={`stream-${index}`}
                 label="Stream"
@@ -157,6 +132,40 @@ const EducationForm: React.FC = () => {
                 onChange={(e) => handleChange(e, "stream", index)}
               />
               <TextField
+                size="small"
+                id={`institution-${index}`}
+                name={`institution-${index}`}
+                label="Institution"
+                variant="outlined"
+                fullWidth
+                margin="normal"
+                value={entry.institution}
+                onChange={(e) => handleChange(e, "institution", index)}
+              />
+              <TextField
+                size="small"
+                id={`university-${index}`}
+                name={`university-${index}`}
+                label="University"
+                variant="outlined"
+                fullWidth
+                margin="normal"
+                value={entry.university}
+                onChange={(e) => handleChange(e, "university", index)}
+              />
+              <TextField
+                size="small"
+                id={`location-${index}`}
+                name={`location-${index}`}
+                label="Location"
+                variant="outlined"
+                fullWidth
+                margin="normal"
+                value={entry.location}
+                onChange={(e) => handleChange(e, "location", index)}
+              />
+              <TextField
+                size="small"
                 id={`cgpa-${index}`}
                 name={`cgpa-${index}`}
                 label="CGPA"
@@ -168,6 +177,7 @@ const EducationForm: React.FC = () => {
                 onChange={(e) => handleChange(e, "cgpa", index)}
               />
               <TextField
+                size="small"
                 id={`descriptions-${index}`}
                 name={`descriptions-${index}`}
                 label="Descriptions (About your achievements...)"
@@ -176,7 +186,7 @@ const EducationForm: React.FC = () => {
                 margin="normal"
                 multiline
                 rows={3}
-                value={entry.descriptions}
+                value={entry.descriptions ? entry.descriptions.join("\n") : ""}
                 onChange={(e) => handleChange(e, "descriptions", index)}
               />
               <Button

@@ -2,8 +2,13 @@ import * as React from "react";
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
-import TextField from "@mui/material/TextField";
-
+import IconButton from "@mui/material/IconButton";
+import OutlinedInput from "@mui/material/OutlinedInput";
+import InputLabel from "@mui/material/InputLabel";
+import InputAdornment from "@mui/material/InputAdornment";
+import FormControl from "@mui/material/FormControl";
+import Visibility from "@mui/icons-material/Visibility";
+import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import Paper from "@mui/material/Paper";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
@@ -12,20 +17,27 @@ import Typography from "@mui/material/Typography";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { UserContextApi } from "../../context/AuthContext";
 import { UsersContextApi } from "../../context/UsersContext";
-import { useNavigate } from "react-router-dom";
 import { useContext, useState } from "react";
 import { NavLink } from "react-router-dom";
 
 const defaultTheme = createTheme();
 export default function Signin() {
-  const navigate = useNavigate();
   const contextValue = useContext(UserContextApi);
 
   const signIn = contextValue?.signIn;
 
   const data = useContext(UsersContextApi);
   const users = data?.userData;
-  console.log(users);
+
+  const [showPassword, setShowPassword] = React.useState(false);
+
+  const handleClickShowPassword = () => setShowPassword((show) => !show);
+
+  const handleMouseDownPassword = (
+    event: React.MouseEvent<HTMLButtonElement>
+  ) => {
+    event.preventDefault();
+  };
 
   type AuthType = {
     email: string;
@@ -36,9 +48,14 @@ export default function Signin() {
     password: "",
   });
   const { email, password } = authData;
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target;
-    setAuthData({ ...authData, [name]: value });
+  const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { value } = e.target;
+    setAuthData({ ...authData, email: value });
+  };
+
+  const handlePasswordChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { value } = e.target;
+    setAuthData({ ...authData, password: value });
   };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -46,15 +63,15 @@ export default function Signin() {
 
     try {
       if (signIn && users) {
-        const result = signIn(authData, users);
+        const result = await signIn(authData, users);
         if (result) {
-          navigate("/");
+          console.log("Authentication successful");
         } else {
-          throw Error("Authentication failed");
+          console.error("Authentication failed.");
         }
       }
     } catch (error) {
-      throw Error("Error logging in");
+      console.error("Error during authentication:", error);
     }
   };
 
@@ -82,7 +99,7 @@ export default function Signin() {
         <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
           <Box
             sx={{
-              my: 8,
+              my: 15,
               mx: 4,
               display: "flex",
               flexDirection: "column",
@@ -95,36 +112,46 @@ export default function Signin() {
             <Typography component="h1" variant="h5">
               Sign in
             </Typography>
-            <Box
-              component="form"
-              noValidate
-              onSubmit={handleSubmit}
-              sx={{ mt: 1 }}
-            >
-              <TextField
-                margin="normal"
-                required
-                fullWidth
-                id="email"
-                label="Email Address"
-                name="email"
-                value={email}
-                autoComplete="email"
-                onChange={handleInputChange}
-                autoFocus
-              />
-              <TextField
-                margin="normal"
-                required
-                fullWidth
-                name="password"
-                label="Password"
-                type="password"
-                id="password"
-                value={password}
-                onChange={handleInputChange}
-                autoComplete="current-password"
-              />
+
+            <Box component="form" onSubmit={handleSubmit} sx={{ mt: 1 }}>
+              <FormControl variant="outlined" fullWidth margin="normal">
+                <InputLabel htmlFor="outlined-adornment-email">
+                  Email Address
+                </InputLabel>
+                <OutlinedInput
+                  id="outlined-adornment-email"
+                  type="email"
+                  value={email}
+                  onChange={handleEmailChange}
+                  label="Email Address"
+                  autoFocus
+                />
+              </FormControl>
+
+              <FormControl variant="outlined" fullWidth margin="normal">
+                <InputLabel htmlFor="outlined-adornment-password">
+                  Password
+                </InputLabel>
+                <OutlinedInput
+                  id="outlined-adornment-password"
+                  type={showPassword ? "text" : "password"}
+                  value={password}
+                  onChange={handlePasswordChange}
+                  endAdornment={
+                    <InputAdornment position="end">
+                      <IconButton
+                        aria-label="toggle password visibility"
+                        onClick={handleClickShowPassword}
+                        onMouseDown={handleMouseDownPassword}
+                        edge="end"
+                      >
+                        {showPassword ? <VisibilityOff /> : <Visibility />}
+                      </IconButton>
+                    </InputAdornment>
+                  }
+                  label="Password"
+                />
+              </FormControl>
 
               <Button
                 type="submit"

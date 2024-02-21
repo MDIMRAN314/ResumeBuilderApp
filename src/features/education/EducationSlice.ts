@@ -27,8 +27,12 @@ const educationSlice = createSlice({
     addEducation: (state, action: PayloadAction<EducationEntry>) => {
       state.entries.push(action.payload);
     },
-    editEducation: (state, action: PayloadAction<{ index: number; entry: EducationEntry }>) => {
-      state.entries[action.payload.index] = action.payload.entry;
+    editEducation: (
+      state,
+      action: PayloadAction<{ index: number; entry: EducationEntry }>
+    ) => {
+      const { index, entry } = action.payload;
+      state.entries[index] = entry;
     },
     deleteEducation: (state, action: PayloadAction<number>) => {
       state.entries.splice(action.payload, 1);
@@ -39,5 +43,6 @@ const educationSlice = createSlice({
   },
 });
 
-export const { addEducation, editEducation, deleteEducation, clearEducation } = educationSlice.actions;
+export const { addEducation, editEducation, deleteEducation, clearEducation } =
+  educationSlice.actions;
 export default educationSlice.reducer;
