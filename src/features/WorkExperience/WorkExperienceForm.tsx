@@ -1,0 +1,183 @@
+import React from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { Box, TextField, Button } from "@mui/material";
+import { RootState } from "../../components/App/Store";
+import { DatePicker, LocalizationProvider } from "@mui/x-date-pickers";
+import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+import dayjs, { Dayjs } from "dayjs";
+import {
+  WorkExperienceEntry,
+  addWorkExperience,
+  deleteWorkExperience,
+  editWorkExperience,
+} from "./WorkExperienceSlice";
+
+const WorkExperienceForm: React.FC = () => {
+  const dispatch = useDispatch();
+  const workExperience = useSelector(
+    (state: RootState) => state.workExperience
+  );
+
+  const handleDateChange = (date: Dayjs | null, id: string, index: number) => {
+    if (date) {
+      dispatch(
+        editWorkExperience({
+          index,
+          entry: {
+            ...workExperience.entries[index],
+            [id]: date.format("MMM/YYYY"),
+          },
+        })
+      );
+    } else {
+      dispatch(
+        editWorkExperience({
+          index,
+          entry: { ...workExperience.entries[index], [id]: "" },
+        })
+      );
+    }
+  };
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+    id: string,
+    index: number
+  ) => {
+    const { value } = e.target;
+    dispatch(
+      editWorkExperience({
+        index,
+        entry: { ...workExperience.entries[index], [id]: value },
+      })
+    );
+  };
+
+  const handleAddWorkExperience = () => {
+    dispatch(
+      addWorkExperience({
+        start_date: "",
+        end_date: "",
+        designation: "",
+        company: "",
+        location: "",
+        roleDescription: [],
+      })
+    );
+  };
+
+  const handleDeleteWorkExperience = (index: number) => {
+    dispatch(deleteWorkExperience(index));
+  };
+
+  return (
+    <Box sx={{ width: "100%" }}>
+      <form>
+        {workExperience.entries.map((entry: WorkExperienceEntry, index: number) => (
+          <div key={index}>
+            <Box sx={{ display: "flex", justifyContent: "space-around" }}>
+              <LocalizationProvider dateAdapter={AdapterDayjs}>
+                <DatePicker
+                  value={
+                    entry.start_date
+                      ? dayjs(entry.start_date, "MMM/YYYY")
+                      : null
+                  }
+                  onChange={(date) =>
+                    handleDateChange(date, "start_date", index)
+                  }
+                  slotProps={{
+                    textField: {
+                      id: `startDate-${index}`,
+                      name: `startDate-${index}`,
+                      label: "Start Date",
+                      variant: "outlined",
+                      fullWidth: true,
+                      margin: "normal",
+                    },
+                  }}
+                />
+                <DatePicker
+                  value={
+                    entry.end_date ? dayjs(entry.end_date, "MMM/YYYY") : null
+                  }
+                  onChange={(date) => handleDateChange(date, "end_date", index)}
+                  slotProps={{
+                    textField: {
+                      id: `endDate-${index}`,
+                      name: `endDate-${index}`,
+                      label: "End Date",
+                      variant: "outlined",
+                      fullWidth: true,
+                      margin: "normal",
+                    },
+                  }}
+                />
+              </LocalizationProvider>
+            </Box>
+            <Box sx={{ mt: 2 }}>
+              <TextField
+                id={`designation-${index}`}
+                name={`designation-${index}`}
+                label="Designation"
+                variant="outlined"
+                fullWidth
+                margin="normal"
+                value={entry.designation}
+                onChange={(e) => handleChange(e, "designation", index)}
+              />
+              <TextField
+                id={`company-${index}`}
+                name={`company-${index}`}
+                label="Company"
+                variant="outlined"
+                fullWidth
+                margin="normal"
+                value={entry.company}
+                onChange={(e) => handleChange(e, "company", index)}
+              />
+              <TextField
+                id={`location-${index}`}
+                name={`location-${index}`}
+                label="Location"
+                variant="outlined"
+                fullWidth
+                margin="normal"
+                value={entry.location}
+                onChange={(e) => handleChange(e, "location", index)}
+              />
+
+              <TextField
+                id={`descriptions-${index}`}
+                name={`descriptions-${index}`}
+                label="Role Descriptions (Separate with commas)"
+                variant="outlined"
+                fullWidth
+                margin="normal"
+                value={entry.roleDescription}
+                onChange={(e) => handleChange(e, "roleDescription", index)}
+              />
+
+              <Button
+                variant="contained"
+                color="secondary"
+                onClick={() => handleDeleteWorkExperience(index)}
+              >
+                Delete Work Experience
+              </Button>
+            </Box>
+          </div>
+        ))}
+        <Button
+          variant="contained"
+          color="primary"
+          onClick={handleAddWorkExperience}
+        >
+          Add Work Experience
+        </Button>
+      </form>
+    </Box>
+  );
+};
+
+export default WorkExperienceForm;

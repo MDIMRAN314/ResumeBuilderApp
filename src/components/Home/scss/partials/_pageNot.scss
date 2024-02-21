@@ -1,0 +1,40 @@
+$gif-url: "https://cdn.dribbble.com/userupload/6028083/file/original-3aa4ba97cfd2956f084570d638c4a9c2.gif";
+$button-color: #6c46c7;
+.page_404 {
+  padding: 40px 0;
+  background: #fff;
+  font-family: "Arvo", serif;
+}
+
+.page_404 img {
+  width: 100%;
+}
+
+.four_zero_four_bg {
+  background-image: url(gif-url.gif);
+  background-repeat: no-repeat;
+  height: 500px;
+  background-position: center;
+}
+.link_404 {
+  color: #fff !important;
+  padding: 10px 20px;
+  background: $button-color;
+  margin: 20px 0;
+  display: inline-block;
+  text-decoration: none;
+  border-radius: 3px;
+}
+
+.contant_box_404 {
+  margin-top: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.h3-pnf {
+  font-weight: 200;
+  font-size: xxx-large;
+  color: #b5a7d7;
+}

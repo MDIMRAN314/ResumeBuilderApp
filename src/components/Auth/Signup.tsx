@@ -1,51 +1,43 @@
-import * as React from 'react';
-import Avatar from '@mui/material/Avatar';
-import Button from '@mui/material/Button';
-import CssBaseline from '@mui/material/CssBaseline';
-import TextField from '@mui/material/TextField';
-import Grid from '@mui/material/Grid';
-import Box from '@mui/material/Box';
-import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
-import Typography from '@mui/material/Typography';
-import Container from '@mui/material/Container';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
-import { UserContextApi } from '../context/AuthContext';
-import { useContext,useState } from 'react';
-import { PayloadProps } from './../types/PayloadType';
-import { NavLink } from 'react-router-dom';
-import { useNavigate } from 'react-router-dom';
-
-
-
+import * as React from "react";
+import Avatar from "@mui/material/Avatar";
+import Button from "@mui/material/Button";
+import CssBaseline from "@mui/material/CssBaseline";
+import TextField from "@mui/material/TextField";
+import Grid from "@mui/material/Grid";
+import Box from "@mui/material/Box";
+import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
+import Typography from "@mui/material/Typography";
+import Container from "@mui/material/Container";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
+import { UserContextApi } from "../../context/AuthContext";
+import { useContext, useState } from "react";
+import { PayloadProps } from "../../types/PayloadType";
+import { NavLink } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const defaultTheme = createTheme();
 
 export default function Signup() {
+  const navigate = useNavigate();
+  const contextValue = useContext(UserContextApi);
+  const signup = contextValue?.signup;
 
-let navigate = useNavigate();
-    const contextValue=useContext(UserContextApi)
-    const signup=contextValue?.signup
-    
-    
-    const [formData, setFormData] = useState<PayloadProps>({
-      firstName: "",
-      lastName: "",
-      email: "",
-      password: "",
-        });
-
-
+  const [formData, setFormData] = useState<PayloadProps>({
+    firstName: "",
+    lastName: "",
+    email: "",
+    password: "",
+  });
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    if(signup){
-      signup(formData)
-      navigate("/")
-      window.location.reload();
+    if (signup) {
+      signup(formData);
+      navigate("/login");
+    } else {
+      navigate("/");
     }
-   
   };
-
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
@@ -62,18 +54,23 @@ let navigate = useNavigate();
         <Box
           sx={{
             marginTop: 8,
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
           }}
         >
-          <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
+          <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
             <LockOutlinedIcon />
           </Avatar>
           <Typography component="h1" variant="h5">
             Sign up
           </Typography>
-          <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
+          <Box
+            component="form"
+            noValidate
+            onSubmit={handleSubmit}
+            sx={{ mt: 3 }}
+          >
             <Grid container spacing={2}>
               <Grid item xs={12} sm={6}>
                 <TextField
@@ -125,7 +122,6 @@ let navigate = useNavigate();
                   autoComplete="new-password"
                 />
               </Grid>
-              
             </Grid>
             <Button
               type="submit"
@@ -136,13 +132,12 @@ let navigate = useNavigate();
               Sign Up
             </Button>
             <Grid container justifyContent="center">
-            <Grid item >
-              <NavLink to="/">Already have an account? Sign In</NavLink>
+              <Grid item>
+                <NavLink to="/">Already have an account? Sign In</NavLink>
               </Grid>
             </Grid>
           </Box>
         </Box>
-   
       </Container>
     </ThemeProvider>
   );

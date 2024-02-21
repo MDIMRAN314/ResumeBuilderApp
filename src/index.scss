@@ -1,0 +1,57 @@
+//global css
+@use "../src/components/Home/scss/partials/_global";
+
+//nav css
+@use "../src/components/Home/scss/partials/nav";
+
+//banner css
+@use "../src/components/Home/scss/partials/banner";
+
+//template css
+@use "../src/components/Home/scss/partials/template";
+
+//pageNotFound
+@use "../src/components/Home/scss/partials/pageNot";
+
+//media queries--------------------------------------
+@media (min-width: 1300px) {
+  .paraAbout p {
+    font-size: 1.4rem;
+  }
+  .tempHeading h1 {
+    font-size: 2.4rem;
+    margin-top: 2em;
+  }
+  .templates {
+    margin-top: 7em;
+  }
+}
+
+@media (min-width: 900px) {
+  .paraAbout p {
+    font-size: 1.4rem;
+  }
+  .tempHeading h1 {
+    font-size: 2.4rem;
+    margin-top: 2em;
+  }
+  .templates {
+    margin-top: 7em;
+  }
+}
+
+@media (max-width: 900px) {
+  .bannerContent h1 {
+    font-size: 2.4rem;
+    color: rgba(26, 26, 26, 0.973);
+  }
+  .paraAbout p {
+    padding-top: 1.5rem;
+  }
+  .tempContainer {
+    top: 5em;
+  }
+  .main-container {
+    height: 131vh;
+  }
+}

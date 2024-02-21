@@ -16,7 +16,7 @@ type SignInType = {
 
 interface ContextValueType {
   authState: AuthState;
-  signup: (payload: PayloadProps | null) => Promise<void>; // Return type added for consistency
+  signup: (payload: PayloadProps | null) => Promise<void>;
   signIn: (
     payload: SignInType,
     users: UsersStateType
@@ -32,7 +32,7 @@ const initialState: AuthState = {
 
 const UserContextProvider = ({ children }: UserContextProviderProps) => {
   const [auth, dispatch] = useReducer(authReducer, initialState);
-  //signup
+
   const signup = async (payload: PayloadProps | null): Promise<void> => {
     try {
       if (payload) {
@@ -71,11 +71,9 @@ const UserContextProvider = ({ children }: UserContextProviderProps) => {
     }
 
     toast.success("Successfully Logged In!");
-    // Dispatch an action to update the authentication state upon successful login
     dispatch({ type: "LOGIN", payload: foundUser });
     return true;
   };
-console.log(auth,"auth====");
 
   const contextValue: ContextValueType = {
     authState: auth,
@@ -85,7 +83,7 @@ console.log(auth,"auth====");
 
   return (
     <>
-      <Toaster></Toaster>
+      <Toaster />
       <UserContextApi.Provider value={contextValue}>
         {children}
       </UserContextApi.Provider>

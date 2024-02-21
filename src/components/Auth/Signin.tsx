@@ -4,29 +4,27 @@ import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
 import TextField from "@mui/material/TextField";
 
-
 import Paper from "@mui/material/Paper";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import { UserContextApi } from "../context/AuthContext";
-import { UsersContextApi } from "../context/UsersContext";
-// import { useNavigate } from 'react-router-dom';
+import { UserContextApi } from "../../context/AuthContext";
+import { UsersContextApi } from "../../context/UsersContext";
+import { useNavigate } from "react-router-dom";
 import { useContext, useState } from "react";
 import { NavLink } from "react-router-dom";
 
-
 const defaultTheme = createTheme();
 export default function Signin() {
-  // let navigate=useNavigate();
+  const navigate = useNavigate();
   const contextValue = useContext(UserContextApi);
 
   const signIn = contextValue?.signIn;
 
-  const x = useContext(UsersContextApi);
-  const users = x?.userData;
+  const data = useContext(UsersContextApi);
+  const users = data?.userData;
   console.log(users);
 
   type AuthType = {
@@ -48,22 +46,18 @@ export default function Signin() {
 
     try {
       if (signIn && users) {
-        const result = await signIn(authData, users);
-        console.log("Authentication Result:", result);
-
+        const result = signIn(authData, users);
         if (result) {
-          
+          navigate("/");
         } else {
-          // Handle authentication failure, show an error message, etc.
-          console.error("Authentication failed.");
+          throw Error("Authentication failed");
         }
       }
     } catch (error) {
-      console.error("Error during authentication:", error);
+      throw Error("Error logging in");
     }
   };
 
-  // console.log(authData)
   return (
     <ThemeProvider theme={defaultTheme}>
       <Grid container component="main" sx={{ height: "100vh" }}>
@@ -141,8 +135,13 @@ export default function Signin() {
                 Sign In
               </Button>
 
-              <Grid item display="flex" alignItems="center" justifyContent="center">
-              <NavLink to="/signup">Don't have an account? Sign Up</NavLink>
+              <Grid
+                item
+                display="flex"
+                alignItems="center"
+                justifyContent="center"
+              >
+                <NavLink to="/signup">Don't have an account? Sign Up</NavLink>
               </Grid>
             </Box>
           </Box>
