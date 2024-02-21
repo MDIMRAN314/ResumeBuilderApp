@@ -11,6 +11,7 @@ import {
   deleteWorkExperience,
   editWorkExperience,
 } from "./WorkExperienceSlice";
+import { Delete } from "@mui/icons-material";
 
 const WorkExperienceForm: React.FC = () => {
   const dispatch = useDispatch();
@@ -79,7 +80,13 @@ const WorkExperienceForm: React.FC = () => {
         {workExperience.entries.map(
           (entry: WorkExperienceEntry, index: number) => (
             <div key={index}>
-              <Box sx={{ display: "flex", justifyContent: "space-around" }}>
+              <Box
+                sx={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  gap: "1rem",
+                }}
+              >
                 <LocalizationProvider dateAdapter={AdapterDayjs}>
                   <DatePicker
                     value={
@@ -92,6 +99,7 @@ const WorkExperienceForm: React.FC = () => {
                     }
                     slotProps={{
                       textField: {
+                        size: "small",
                         id: `startDate-${index}`,
                         name: `startDate-${index}`,
                         label: "Start Date",
@@ -110,6 +118,7 @@ const WorkExperienceForm: React.FC = () => {
                     }
                     slotProps={{
                       textField: {
+                        size: "small",
                         id: `endDate-${index}`,
                         name: `endDate-${index}`,
                         label: "End Date",
@@ -123,16 +132,17 @@ const WorkExperienceForm: React.FC = () => {
               </Box>
               <Box sx={{ mt: 2 }}>
                 <TextField
+                  size="small"
                   id={`designation-${index}`}
                   name={`designation-${index}`}
                   label="Designation"
                   variant="outlined"
                   fullWidth
-                  margin="normal"
                   value={entry.designation}
                   onChange={(e) => handleChange(e, "designation", index)}
                 />
                 <TextField
+                  size="small"
                   id={`company-${index}`}
                   name={`company-${index}`}
                   label="Company"
@@ -143,6 +153,7 @@ const WorkExperienceForm: React.FC = () => {
                   onChange={(e) => handleChange(e, "company", index)}
                 />
                 <TextField
+                  size="small"
                   id={`location-${index}`}
                   name={`location-${index}`}
                   label="Location"
@@ -154,6 +165,7 @@ const WorkExperienceForm: React.FC = () => {
                 />
 
                 <TextField
+                  size="small"
                   id={`roleDescription-${index}`}
                   name={`descriptions-${index}`}
                   label="Role Descriptions (About your achievements...)"
@@ -172,22 +184,24 @@ const WorkExperienceForm: React.FC = () => {
 
                 <Button
                   variant="contained"
-                  color="secondary"
+                  color="error"
                   onClick={() => handleDeleteWorkExperience(index)}
                 >
-                  Delete Work Experience
+                  <Delete />
                 </Button>
               </Box>
             </div>
           )
         )}
-        <Button
-          variant="contained"
-          color="primary"
-          onClick={handleAddWorkExperience}
-        >
-          Add Work Experience
-        </Button>
+        {workExperience.entries.length === 0 && (
+          <Button
+            variant="contained"
+            color="primary"
+            onClick={handleAddWorkExperience}
+          >
+            Add Work Experience
+          </Button>
+        )}
       </form>
     </Box>
   );

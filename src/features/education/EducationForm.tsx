@@ -11,7 +11,7 @@ import {
   deleteEducation,
   editEducation,
 } from "./EducationSlice";
-import { Add, Delete } from "@mui/icons-material";
+import { Delete } from "@mui/icons-material";
 
 const EducationForm: React.FC = () => {
   const dispatch = useDispatch();
@@ -77,7 +77,13 @@ const EducationForm: React.FC = () => {
       <form>
         {education.entries.map((entry: EducationEntry, index: number) => (
           <div key={index}>
-            <Box sx={{ display: "flex", justifyContent: "space-around" }}>
+            <Box
+              sx={{
+                display: "flex",
+                justifyContent: "space-around",
+                gap: "1rem",
+              }}
+            >
               <LocalizationProvider dateAdapter={AdapterDayjs}>
                 <DatePicker
                   label="From"
@@ -85,6 +91,7 @@ const EducationForm: React.FC = () => {
                   onChange={(date) => handleDateChange(date, "from", index)}
                   slotProps={{
                     textField: {
+                      size: "small",
                       id: `fromYear-${index}`,
                       name: `fromYear-${index}`,
                       label: "From year",
@@ -99,6 +106,7 @@ const EducationForm: React.FC = () => {
                   onChange={(date) => handleDateChange(date, "to", index)}
                   slotProps={{
                     textField: {
+                      size: "small",
                       id: `toYear-${index}`,
                       name: `toYear-${index}`,
                       label: "To year",
@@ -199,12 +207,13 @@ const EducationForm: React.FC = () => {
             </Box>
           </div>
         ))}
+
         <Button
           variant="contained"
           color="primary"
           onClick={handleAddEducation}
         >
-          <Add />
+          Add Education
         </Button>
       </form>
     </Box>

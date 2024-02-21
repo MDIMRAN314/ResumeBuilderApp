@@ -10,7 +10,7 @@ import EducationForm from "../features/education/EducationForm";
 import SkillsForm from "../features/skills/SkillsForm";
 import CertificationForm from "../features/certifications/CertificationForm";
 import ResumePreview from "./ResumePreview";
-import AwardsAndAchievementForm from "../features/awardsAndAchievement/AwardsAndAchievement";
+import AwardsAndAchievementForm from "../features/awardsAndAchievement/AwardsAndAchievementForm";
 import NavigationBar from "./Home/NavigationBar";
 import { UserContextApi } from "../context/AuthContext";
 import { useNavigate } from "react-router-dom";

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Box, TextField, Button, Chip } from "@mui/material";
-import { useDispatch, useSelector } from 'react-redux';
-import { RootState } from '../../App/Store';
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "../../App/Store";
 import {
   addAwardsAndAchievements,
   removeAwardsAndAchievements,
@@ -36,6 +36,7 @@ const AwardsAndAchievementForm: React.FC = () => {
     <Box sx={{ width: "100%" }}>
       <form>
         <TextField
+          size="small"
           id="awards"
           name="awards"
           label="Awards and Achievements (Separate with commas)"
