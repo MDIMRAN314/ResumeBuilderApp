@@ -1,8 +1,13 @@
 import bannerimg from "../../assets/resumebanner.png";
 import all from "../../assets/all.png";
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { UserContextApi } from "../../context/AuthContext";
 
 const Banner = () => {
+  const userContext = useContext(UserContextApi);
+  const foundUser = userContext?.authState.payload;
+
   return (
     <section className="main-banner-container">
       <main className="bannerContainer">
@@ -17,11 +22,16 @@ const Banner = () => {
             Easily create the perfect resume for any job using our best-in-class
             resume builder platform.
           </p>
-         <Link to='/resume'> <button>Create My Resume Now</button></Link>
+          {foundUser ? (
+            <Link to="/resume">
+              <button>Create My Resume Now</button>
+            </Link>
+          ) : (
+            <Link to="/login">
+              <button>Create My Resume Now</button>
+            </Link>
+          )}
           <p className="hirePara">Subscribers have been hired by:</p>
-          {/* <marquee behavior="" direction="">
-                    <img src={all} alt="" />
-                </marquee> */}
           <div className="marqueeContainer">
             <img src={all} alt="" className="marqueeImage" />
           </div>

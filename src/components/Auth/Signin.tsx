@@ -18,10 +18,11 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { UserContextApi } from "../../context/AuthContext";
 import { UsersContextApi } from "../../context/UsersContext";
 import { useContext, useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 const defaultTheme = createTheme();
 export default function Signin() {
+  const navigate = useNavigate();
   const contextValue = useContext(UserContextApi);
 
   const signIn = contextValue?.signIn;
@@ -63,9 +64,9 @@ export default function Signin() {
 
     try {
       if (signIn && users) {
-        const result = await signIn(authData, users);
+        const result = signIn(authData, users);
         if (result) {
-          console.log("Authentication successful");
+          navigate("/");
         } else {
           console.error("Authentication failed.");
         }

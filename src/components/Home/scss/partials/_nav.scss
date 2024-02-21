@@ -5,23 +5,26 @@
   height: 6rem;
   display: flex;
   align-items: center;
+  justify-content: space-around;
   padding: 0 4rem;
   gap: 5rem;
   border-bottom: 0.08rem solid #efefef;
 }
 .logo {
-  width: 25%;
-  height: 100%;
+  width: 300px;
+  height: 50px;
   display: flex;
   align-items: center;
 
   img {
-    width: 70%;
-    object-fit: contain;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 }
 .menu {
   height: 100%;
+  width: 70%;
   list-style: none;
   ul {
     @extend .menu;

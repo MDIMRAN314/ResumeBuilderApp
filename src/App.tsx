@@ -26,8 +26,8 @@ const App = () => {
         },
         {
           path: "/resume",
-          element: <ResumeContainer />
-        }
+          element: <ResumeContainer />,
+        },
       ],
     },
     {
