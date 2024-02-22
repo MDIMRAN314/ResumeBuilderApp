@@ -1,7 +1,5 @@
 import React, { useContext } from "react";
-import { Box, CssBaseline, Grid, Paper } from "@mui/material";
-// import { LocalizationProvider } from "@mui/x-date-pickers";
-// import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+import { Box, CssBaseline, Grid } from "@mui/material";
 import AccordionForm from "./AccordionForm";
 import PersonalInfoForm from "../features/personalInfo/PersonalInfoForm";
 import SummaryForm from "../features/summary/SummaryForm";
@@ -13,7 +11,7 @@ import ResumePreview from "./ResumePreview";
 import AwardsAndAchievementForm from "../features/awardsAndAchievement/AwardsAndAchievementForm";
 import NavigationBar from "./Home/NavigationBar";
 import { UserContextApi } from "../context/AuthContext";
-import { useNavigate } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
 
 const ResumeContainer: React.FC = () => {
   const navigate = useNavigate();
@@ -22,11 +20,6 @@ const ResumeContainer: React.FC = () => {
 
   return (
     <>
-      {/* <LocalizationProvider dateAdapter={AdapterDayjs}> */}
-      {/* <CssBaseline /> */}
-      {/* <Navbar mode={"light"} toggleColorMode={function (): void {
-        throw new Error("Function not implemented.");
-      } } /> */}
       {foundUser ? (
         <>
           <NavigationBar foundUser={foundUser} />
@@ -35,7 +28,6 @@ const ResumeContainer: React.FC = () => {
             <Box mt={1}>
               <Grid container spacing={3}>
                 <Grid item xs={12} md={6} lg={5}>
-                  {/* <Paper sx={{ padding: 3, height: "90vh" }} square> */}
                   <AccordionForm title="Personal Information">
                     <PersonalInfoForm />
                   </AccordionForm>
@@ -57,16 +49,13 @@ const ResumeContainer: React.FC = () => {
                   <AccordionForm title="Certifications">
                     <CertificationForm />
                   </AccordionForm>
-                  {/* </Paper> */}
                 </Grid>
                 <Grid item xs={12} md={6} lg={7}>
-                  <Paper elevation={2} square>
-                    <ResumePreview />
-                  </Paper>
+                  <ResumePreview />
+                  <Outlet />
                 </Grid>
               </Grid>
             </Box>
-            {/* <Button onClick={downloadResume}>Download Resume</Button> */}
           </Box>
         </>
       ) : (

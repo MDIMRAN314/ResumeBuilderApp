@@ -1,0 +1,273 @@
+.temp1-main-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+.temp1-container {
+  width: 100%;
+  height: inherit;
+  border: 10px solid rgb(255 132 104);
+  border-radius: 5px;
+  padding: 0.5em;
+  svg {
+    font-size: large;
+  }
+}
+.temp1-content {
+  width: 100%;
+  padding: 1.5em;
+}
+.temp1-name-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+//name,desg
+.temp1-name {
+  font-size: x-large;
+  font-weight: 500;
+  font-family: monospace;
+}
+.temp1-desg {
+  font-family: monospace;
+  font-size: medium;
+}
+//add,insta
+.add-insta {
+  margin-top: 1em;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1em;
+}
+.add {
+  flex-basis: 80%;
+  display: flex;
+  gap: 0.5em;
+}
+.insta {
+  flex-basis: 20%;
+  display: flex;
+  gap: 0.5em;
+}
+.temp1-container {
+  .add-insta {
+    svg {
+      color: #e15b2a;
+    }
+  }
+  .contact {
+    svg {
+      color: #e15b2a;
+    }
+  }
+}
+//mail,phone
+.contact {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.mail {
+  flex-basis: 40%;
+  display: flex;
+  gap: 0.5em;
+}
+.phone {
+  flex-basis: 60%;
+  display: flex;
+  gap: 0.5em;
+}
+span {
+  font-family: monospace;
+}
+//profile section
+.profile-heading {
+  margin-top: 1.5em;
+  display: flex;
+  gap: 0.5em;
+  h4 {
+    font-family: math;
+  }
+}
+//profile experience
+.prof-exp {
+  margin-top: 1.5em;
+  gap: 0.5em;
+}
+.prof-exp-heading {
+  margin-top: 1.5em;
+  display: flex;
+  gap: 0.5em;
+  h4 {
+    font-family: math;
+  }
+}
+.company-details {
+  margin-top: 0.5em;
+  display: flex;
+  gap: 1.5em;
+}
+.company-details > div {
+  font-family: monospace;
+}
+.comp-name-post {
+  display: flex;
+  flex-basis: 70% h5 {
+    font-family: monospace;
+    font-size: larger;
+  }
+}
+.comp-year-place {
+  display: flex;
+  flex-basis: 30%;
+}
+.comp-year h5 {
+  color: #e15b2a;
+}
+.exp-desc {
+  margin-top: 1em;
+}
+
+// education
+
+.edu-heading {
+  margin-top: 1.5em;
+  display: flex;
+  gap: 0.5em;
+  h4 {
+    font-family: math;
+  }
+}
+.education {
+  margin-top: 1.5em;
+  gap: 0.5em;
+}
+.prof-exp-heading {
+  margin-top: 1.5em;
+  display: flex;
+  gap: 0.5em;
+  h4 {
+    font-family: math;
+  }
+}
+
+.edu-details {
+  margin-top: 0.5em;
+  display: flex;
+  gap: 1.5em;
+}
+.edu-details > div {
+  font-family: monospace;
+}
+.edu-course-institute {
+  flex-basis: 70% h5 {
+    font-family: monospace;
+    font-size: larger;
+  }
+}
+.edu-year-place {
+  display: flex;
+  flex-basis: 30%;
+}
+.edu-year h5 {
+  color: #e15b2a;
+}
+//certificates
+
+.cert-heading {
+  margin-top: 1.5em;
+  display: flex;
+  gap: 0.5em;
+  h4 {
+    font-family: math;
+  }
+}
+.certificates {
+  margin-top: 1.5em;
+  gap: 0.5em;
+}
+.cert-details {
+  margin-top: 0.5em;
+  display: flex;
+  gap: 1.5em;
+}
+.edu-details > div {
+  font-family: monospace;
+}
+.cert-course {
+  display: flex;
+  flex-basis: 100%;
+  gap: 0.5em;
+  flex-wrap: wrap;
+  h5 {
+    font-family: monospace;
+    font-size: larger;
+  }
+}
+//lang
+
+.lang-heading {
+  margin-top: 1.5em;
+  display: flex;
+  gap: 0.5em;
+  h4 {
+    font-family: math;
+  }
+}
+.languages {
+  margin-top: 1.5em;
+  gap: 0.5em;
+}
+.lang-details {
+  margin-top: 0.5em;
+  display: flex;
+  gap: 1.5em;
+}
+.lang-details > div {
+  font-family: monospace;
+}
+.lang-course {
+  display: flex;
+  flex-basis: 100%;
+  gap: 0.5em;
+  flex-wrap: wrap;
+  h5 {
+    font-family: monospace;
+    font-size: larger;
+  }
+}
+
+//skills
+.skill-heading {
+  margin-top: 1.5em;
+  display: flex;
+  gap: 0.5em;
+}
+.skill-heading h4 {
+  font-family: math;
+}
+.skills {
+  margin-top: 1.5em;
+  gap: 0.5em;
+}
+.skill-details {
+  margin-top: 0.5em;
+  display: flex;
+  gap: 1.5em;
+}
+.skill-details > div {
+  font-family: monospace;
+}
+.skill-course {
+  display: flex;
+  flex-basis: 100%;
+  gap: 0.5em;
+  flex-wrap: wrap;
+  h5 {
+    font-family: monospace;
+    font-size: larger;
+  }
+}

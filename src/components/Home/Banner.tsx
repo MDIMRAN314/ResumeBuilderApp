@@ -1,18 +1,42 @@
-import bannerimg from "../../assets/resumebanner.png";
-import all from "../../assets/all.png";
+import bannerimg from "../../assets/home-animation.svg";
+import bannerimg1 from "../../assets/ResumeBuilder-Homepage-Banner-Update-No-Background-1.webp";
+import bannerimg2 from "../../assets/ResumeBuilder-Homepage-Banner-Background-2.webp";
+import bannerimg3 from "../../assets/ResumeBuilder-Homepage-Banner-Update-No-Background-3.webp";
+import all from "../../assets/black-logo-1.svg";
 import { Link } from "react-router-dom";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { UserContextApi } from "../../context/AuthContext";
 
 const Banner = () => {
   const userContext = useContext(UserContextApi);
   const foundUser = userContext?.authState.payload;
 
+  const [currentBannerIndex, setCurrentBannerIndex] = useState(0);
+
+  const bannerImages = [bannerimg1, bannerimg2, bannerimg3];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentBannerIndex(
+        (prevIndex) => (prevIndex + 1) % bannerImages.length
+      );
+    }, 4000);
+
+    return () => clearInterval(interval);
+  }, [bannerImages.length]);
+
   return (
     <section className="main-banner-container">
       <main className="bannerContainer">
         <aside className="bannerImg">
-          <img src={bannerimg} alt="Banner" />
+          <div className="image-container">
+            <img src={bannerimg} alt="bg" className="bgImage" />
+            <img
+              src={bannerImages[currentBannerIndex]}
+              alt={`Banner${currentBannerIndex + 1}`}
+              className="frontImage"
+            />
+          </div>
         </aside>
         <article className="bannerContent">
           <h1>
@@ -24,16 +48,16 @@ const Banner = () => {
           </p>
           {foundUser ? (
             <Link to="/resume">
-              <button>Create My Resume Now</button>
+              <button className="create-button">Create My Resume Now</button>
             </Link>
           ) : (
             <Link to="/login">
-              <button>Create My Resume Now</button>
+              <button className="create-button">Create My Resume Now</button>
             </Link>
           )}
           <p className="hirePara">Subscribers have been hired by:</p>
-          <div className="marqueeContainer">
-            <img src={all} alt="" className="marqueeImage" />
+          <div className="marquee-container">
+            <img src={all} alt="Marquee" className="marquee-image" />
           </div>
         </article>
       </main>

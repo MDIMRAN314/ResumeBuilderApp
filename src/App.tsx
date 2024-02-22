@@ -1,41 +1,22 @@
-import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import { PageNotFound } from "./pages/PageNotFound";
-import Signin from "./components/Auth/Signin";
-import Signup from "./components/Auth/Signup";
-import { Home } from "./components/Home/Home";
-import Layouts from "./components/Home/Layouts";
-import ResumeContainer from "./components/ResumeContainer";
+import "./index.scss";
+import UserContextProvider from "./context/AuthContext.tsx";
+import UsersContextProvider from "./context/UsersContext.tsx";
+import { Provider } from "react-redux";
+import { store } from "./App/Store";
+import Routes from "./Routes.tsx";
 
 const App = () => {
-  const router = createBrowserRouter([
-    {
-      path: "/",
-      element: <Layouts />,
-      children: [
-        {
-          path: "/",
-          element: <Home />,
-        },
-        {
-          path: "/login",
-          element: <Signin />,
-        },
-        {
-          path: "/signup",
-          element: <Signup />,
-        },
-        {
-          path: "/resume",
-          element: <ResumeContainer />,
-        },
-      ],
-    },
-    {
-      path: "*",
-      element: <PageNotFound />,
-    },
-  ]);
-  return <RouterProvider router={router}></RouterProvider>;
+  return (
+    <div>
+      <Provider store={store}>
+        <UserContextProvider>
+          <UsersContextProvider>
+            <Routes />
+          </UsersContextProvider>
+        </UserContextProvider>
+      </Provider>
+    </div>
+  );
 };
 
 export default App;

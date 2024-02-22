@@ -1,0 +1,216 @@
+@import url("https://fonts.googleapis.com/css2?family=Kaisei+HarunoUmi:wght@400;500&family=Protest+Riot&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Kaisei+HarunoUmi:wght@400;500&family=Lora:ital,wght@0,400..700;1,400..700&family=Protest+Riot&family=Rubik+Doodle+Shadow&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Kaisei+HarunoUmi:wght@400;500&family=Lora:ital,wght@0,400..700;1,400..700&family=Protest+Riot&display=swap");
+
+.temp2-main-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+.temp2-container {
+  width: 100%;
+  height: fit-content;
+  border-radius: 5px;
+  border: 1px solid white svg {
+    font-size: x-large;
+  }
+}
+.temp2-content {
+  width: 100%;
+  padding: 0.5em;
+  display: flex;
+  border-radius: 5px;
+}
+.temp2-left-content {
+  width: 47%;
+  color: rgb(55 29 114);
+  height: inherit;
+  background-color: rgb(118 103 203 / 18%);
+  border-radius: 5px 0px 0px 5px;
+  padding: 1.5em;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  div {
+    margin-top: 0.5em;
+  }
+}
+.temp2-left-profile svg {
+  font-size: small;
+}
+.temp2-fname,
+.temp2-lname {
+  font-family: "Rubik Doodle Shadow", system-ui;
+  font-weight: 400;
+  font-style: normal;
+  font-size: xx-large;
+}
+.temp2-desg {
+  font-family: math;
+  font-size: x-large;
+}
+.temp2-loc,
+.temp2-phone,
+.temp2-mail {
+  display: flex;
+  gap: 0.5em;
+}
+//skills
+.temp2-left-skills {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  font-size: small;
+}
+.temp2-skill-heading {
+  display: flex;
+  gap: 0.5em;
+  span {
+    font-size: 1.49em;
+    font-weight: 600;
+  }
+}
+.temp2-left-skills .temp2-skill {
+  font-family: serif;
+  font-size: 1.1em;
+}
+//lang
+
+.temp2-left-lang {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  font-size: small;
+}
+.temp2-lang-heading {
+  display: flex;
+  gap: 0.5em;
+  span {
+    font-size: 1.49em;
+    font-weight: 600;
+  }
+}
+.temp2-left-lang .temp2-lang {
+  font-family: serif;
+  font-size: 1.1em;
+}
+//quote
+
+.temp2-left-quote {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  font-size: small;
+}
+.temp2-quote-heading {
+  display: flex;
+  gap: 0.5em;
+  span {
+    font-size: 1.49em;
+    font-weight: 600;
+  }
+}
+.temp2-left-quote .temp2-quote {
+  font-family: serif;
+  font-size: 1.1em;
+}
+//right
+.temp2-right-content {
+  width: 53%;
+  height: inherit;
+  background-color: rgb(55 29 114 / 86%);
+  border-radius: 0px 5px 5px 0px;
+  padding: 2em;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  color: white;
+  font-weight: 100;
+  gap: 3em;
+  font-size: 0.9em;
+}
+.temp2-about-content {
+  margin-top: 2.5em;
+  p {
+    font-family: "Lora", serif;
+  }
+}
+.temp2-exp {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5em;
+}
+.temp2-exp-content p {
+  font-family: "Lora", serif;
+}
+.temp2-comp-post {
+  display: flex;
+  gap: 0.2em;
+  font-family: "Lora", serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+}
+.temp2-year-place {
+  display: flex;
+  gap: 0.2em;
+}
+.temp2-comp-heading,
+.temp2-edu-heading {
+  display: flex;
+  gap: 0.5em;
+  span {
+    font-family: cursive;
+    font-size: 1.3em;
+    font-family: "Lora", serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+  }
+}
+.temp2-course-place {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2em;
+  font-family: "Lora", serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+}
+.temp2-edu {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5em;
+}
+.temp2-interest-heading {
+  display: flex;
+  gap: 0.5em;
+  span {
+    font-size: 1.3em;
+    font-family: "Lora", serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+  }
+}
+.temp2-interest-content {
+  display: flex;
+  gap: 0.5em;
+  button {
+    padding: 5px 5px 5px 5px;
+    border: 1px solid;
+    background-color: transparent;
+    color: white;
+    border-radius: 5px;
+  }
+}
+.temp2-interests {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5em;
+}

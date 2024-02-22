@@ -40,11 +40,9 @@ const UserContextProvider = ({ children }: UserContextProviderProps) => {
           payload
         );
         dispatch({ type: "SIGNUP", payload: data });
-      } else {
-        console.error("Payload is null");
       }
     } catch (error) {
-      console.error("Error occurred during signup:", error);
+      throw Error("error");
     }
   };
 

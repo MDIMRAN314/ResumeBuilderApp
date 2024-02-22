@@ -139,6 +139,20 @@
       "lastName": "gavane",
       "email": "ganesh@gmail.com",
       "password": "ganesh@123"
+    },
+    {
+      "id": "f0b5",
+      "firstName": "md",
+      "lastName": "imran",
+      "email": "imran@example.com",
+      "password": "imran"
+    },
+    {
+      "id": "ac54",
+      "firstName": "xx",
+      "lastName": "xx",
+      "email": "xx@xx",
+      "password": "xx"
     }
   ]
 }

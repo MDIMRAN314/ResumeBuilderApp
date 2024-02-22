@@ -36,9 +36,9 @@ const TemplateSec = () => {
         </div>
       </main>
 
-      <div className="temp-btn">
+      {/* <div className="temp-btn">
         <button>See All Templates</button>
-      </div>
+      </div> */}
     </section>
   );
 };
