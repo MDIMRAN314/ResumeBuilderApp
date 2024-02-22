@@ -14,6 +14,7 @@ import { useContext, useState } from "react";
 import { PayloadProps } from "../../types/PayloadType";
 import { NavLink } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import { type } from './../../App/Store';
 
 const defaultTheme = createTheme();
 
@@ -101,6 +102,7 @@ export default function Signup() {
                   <TextField
                     required
                     fullWidth
+                    type="email"
                     id="email"
                     label="Email Address"
                     name="email"
