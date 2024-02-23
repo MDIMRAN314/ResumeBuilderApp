@@ -18,6 +18,7 @@ const UsersContextProvider = ({ children }: UserCreateType) => {
     isLoading: true,
   };
   const [userState, dispatch] = useReducer(userReducer, initialState);
+  
 
   const fetchUsers = async () => {
     try {

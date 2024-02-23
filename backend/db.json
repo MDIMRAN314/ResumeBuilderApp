@@ -5,7 +5,8 @@
       "firstName": "dhanush",
       "lastName": "bh",
       "email": "dhanush@gmail.com",
-      "password": "1234"
+      "password": "1234",
+      "resume": []
     },
     {
       "id": "8844",
@@ -139,6 +140,20 @@
       "lastName": "gavane",
       "email": "ganesh@gmail.com",
       "password": "ganesh@123"
+    },
+    {
+      "id": "58d9",
+      "firstName": "dhanush",
+      "lastName": "bhhh",
+      "email": "bhimavarapu1234@gmail.com",
+      "password": "1234"
+    },
+    {
+      "id": "69d9",
+      "firstName": "imran",
+      "lastName": "md 2",
+      "email": "imaran2@gmail.com",
+      "password": "1234"
     }
   ]
 }
