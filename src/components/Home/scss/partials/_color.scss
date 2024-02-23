@@ -3,3 +3,8 @@ $bg-color: linear-gradient(
   hsl(305.13deg 40.03% 54.05%),
   hsl(33deg 100% 77.41%)
 );
+$hover-color: linear-gradient(
+  90deg,
+  hsl(33deg 100% 77.41%) hsl(305.13deg 40.03% 54.05%)
+);
+$text-color: #fff;

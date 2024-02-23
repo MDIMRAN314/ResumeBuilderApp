@@ -13,8 +13,7 @@
 .logo {
   width: 300px;
   height: 50px;
-  display: flex;
-  align-items: center;
+  mix-blend-mode: color-burn;
 
   img {
     width: 100%;
@@ -64,12 +63,11 @@
     background: $bg-color;
     -webkit-background-clip: text;
     background-clip: text;
-    color: transparent;
     border: 0.1rem solid #edd6e2;
 
     &:hover {
       background: $bg-color;
-      color: white;
+      color: $text-color;
       border: none;
     }
   }

@@ -71,7 +71,7 @@ export default function Signin() {
         if (result) {
           navigate("/");
         } else {
-          console.error("Authentication failed.");
+          navigate("/login");
         }
       }
     } catch (error) {

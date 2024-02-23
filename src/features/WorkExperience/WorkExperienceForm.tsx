@@ -193,15 +193,13 @@ const WorkExperienceForm: React.FC = () => {
             </div>
           )
         )}
-        {workExperience.entries.length === 0 && (
-          <Button
-            variant="contained"
-            color="primary"
-            onClick={handleAddWorkExperience}
-          >
-            Add Work Experience
-          </Button>
-        )}
+        <Button
+          variant="contained"
+          color="primary"
+          onClick={handleAddWorkExperience}
+        >
+          Add Work Experience
+        </Button>
       </form>
     </Box>
   );

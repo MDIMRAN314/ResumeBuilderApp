@@ -142,6 +142,7 @@
       "password": "ganesh@123"
     },
     {
+<<<<<<< HEAD
       "id": "58d9",
       "firstName": "dhanush",
       "lastName": "bhhh",
@@ -154,6 +155,20 @@
       "lastName": "md 2",
       "email": "imaran2@gmail.com",
       "password": "1234"
+=======
+      "id": "f0b5",
+      "firstName": "md",
+      "lastName": "imran",
+      "email": "imran@example.com",
+      "password": "imran"
+    },
+    {
+      "id": "ac54",
+      "firstName": "xx",
+      "lastName": "xx",
+      "email": "xx@xx",
+      "password": "xx"
+>>>>>>> 9e4ac4be252faae70c1e99309fcb964e715baed7
     }
   ]
 }

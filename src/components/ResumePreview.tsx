@@ -18,8 +18,6 @@ import { CertificationEntry } from "../features/certifications/CertificationSlic
 import { RootState } from "../App/Store";
 
 const ResumePreview: React.FC = () => {
-
-  
   const personalInfo = useSelector((state: RootState) => state.personalInfo);
   const education = useSelector((state: RootState) => state.education);
   const workExperience = useSelector(

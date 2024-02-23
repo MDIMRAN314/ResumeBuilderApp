@@ -34,10 +34,21 @@ export default function Signup() {
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
+<<<<<<< HEAD
     if (signup) {
       signup(formData);
       navigate("/");
       window.location.reload();
+=======
+
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    if (signup) {
+      signup(formData);
+      navigate("/login");
+    } else {
+      navigate("/");
+>>>>>>> 9e4ac4be252faae70c1e99309fcb964e715baed7
     }
   };
 
@@ -56,6 +67,7 @@ export default function Signup() {
           item
           md={6}
           sx={{
+<<<<<<< HEAD
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
@@ -118,6 +130,27 @@ export default function Signup() {
               Sign up
             </Typography>
             <Box component="form" onSubmit={handleSubmit} sx={{ mt: 3 }}>
+=======
+            marginTop: 15,
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+          }}
+        >
+          <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
+            <LockOutlinedIcon />
+          </Avatar>
+          <Typography component="h1" variant="h5">
+            Sign up
+          </Typography>
+          <form>
+            <Box
+              component="form"
+              noValidate
+              onSubmit={handleSubmit}
+              sx={{ mt: 3 }}
+            >
+>>>>>>> 9e4ac4be252faae70c1e99309fcb964e715baed7
               <Grid container spacing={2}>
                 <Grid item xs={12} sm={6}>
                   <TextField
@@ -151,7 +184,10 @@ export default function Signup() {
                     id="email"
                     label="Email Address"
                     name="email"
+<<<<<<< HEAD
                     type="email"
+=======
+>>>>>>> 9e4ac4be252faae70c1e99309fcb964e715baed7
                     value={formData.email}
                     onChange={handleInputChange}
                     autoComplete="email"
@@ -181,6 +217,7 @@ export default function Signup() {
               </Button>
               <Grid container justifyContent="center">
                 <Grid item>
+<<<<<<< HEAD
                   <NavLink to="/login">Already have an account? Sign In</NavLink>
                 </Grid>
               </Grid>
@@ -188,6 +225,18 @@ export default function Signup() {
             </Box>
         </Grid>
       </Grid>
+=======
+                  <NavLink to="/login">
+                    Already have an account? Sign In
+                  </NavLink>
+                </Grid>
+              </Grid>
+            </Box>
+          </form>
+        </Box>
+   
+      </Container>
+>>>>>>> 9e4ac4be252faae70c1e99309fcb964e715baed7
     </ThemeProvider>
   );
 }
