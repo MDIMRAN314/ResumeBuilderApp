@@ -1,7 +1,6 @@
 import * as React from "react";
-
 import Button from "@mui/material/Button";
-
+import Lottie from "lottie-react";
 import IconButton from "@mui/material/IconButton";
 import OutlinedInput from "@mui/material/OutlinedInput";
 import InputLabel from "@mui/material/InputLabel";
@@ -12,16 +11,16 @@ import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import Paper from "@mui/material/Paper";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
-
-import Typography from "@mui/material/Typography";
+import birdjson from "../../lottiefiles/bird.json";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { UserContextApi } from "../../context/AuthContext";
 import { UsersContextApi } from "../../context/UsersContext";
 import { useContext, useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
-import SwipeableTextMobileStepper from "../../carsoul/Carosul";
-import { Avatar, Container } from "@mui/material";
+import { Container } from "@mui/material";
 import logo from "../../assets/reslogo2.jpg";
+import lockjson from "../../lottiefiles/lock.json";
+import resumeicon3 from "../../lottiefiles/resumeicon3.json";
 
 const defaultTheme = createTheme();
 export default function Signin() {
@@ -97,7 +96,10 @@ export default function Signin() {
             }}
           >
             <Container sx={{ padding: "0px !important" }}>
-              <SwipeableTextMobileStepper />
+              <Lottie
+                animationData={resumeicon3}
+                style={{ height: "500px", width: "100%", color: "#1565C0" }}
+              />
             </Container>
           </Grid>
           <Grid
@@ -105,31 +107,25 @@ export default function Signin() {
             xs={12}
             sm={8}
             md={6}
-            
             component={Paper}
             elevation={6}
             square
-
           >
             <Box
-               
               sx={{
-                mt:10,
+                mt: 10,
                 display: "flex",
                 justifyContent: "center",
                 alignItems: "center",
-                }}
+              }}
             >
-              
               <Box
                 sx={{
-               
                   height: "100%",
                   maxWidth: "50%",
                   display: "flex",
                   justifyContent: "center",
                   alignItems: "center",
-                  
                 }}
               >
                 <img
@@ -142,6 +138,10 @@ export default function Signin() {
                   }}
                 />
               </Box>
+              <Lottie
+                animationData={birdjson}
+                style={{ height: "80px", width: "80px" }}
+              />
             </Box>
             <Box
               sx={{
@@ -152,16 +152,10 @@ export default function Signin() {
                 alignItems: "center",
               }}
             >
-              <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
-              
-              </Avatar>
-              <Typography
-                component="h1"
-                variant="h5"
-                style={{ textTransform: "capitalize" }}
-              >
-                Sign in
-              </Typography>
+              <Lottie
+                animationData={lockjson}
+                style={{ height: "80px", width: "80px", color: "#1565C0" }}
+              />
 
               <Box component="form" onSubmit={handleSubmit} sx={{ mt: 1 }}>
                 <FormControl variant="outlined" fullWidth margin="normal">
@@ -171,6 +165,7 @@ export default function Signin() {
                   <OutlinedInput
                     id="outlined-adornment-email"
                     type="email"
+                    required
                     value={email}
                     onChange={handleEmailChange}
                     label="Email Address"
@@ -186,6 +181,7 @@ export default function Signin() {
                     id="outlined-adornment-password"
                     type={showPassword ? "text" : "password"}
                     value={password}
+                    required
                     onChange={handlePasswordChange}
                     endAdornment={
                       <InputAdornment position="end">
@@ -207,7 +203,7 @@ export default function Signin() {
                   type="submit"
                   fullWidth
                   variant="contained"
-                  sx={{ mt: 3, mb: 2 }}
+                  sx={{ mt: 3, mb: 2, p: 1.4 }}
                 >
                   Sign In
                 </Button>

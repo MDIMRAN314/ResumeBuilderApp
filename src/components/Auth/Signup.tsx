@@ -1,11 +1,9 @@
 import * as React from "react";
-import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import Paper from "@mui/material/Paper";
 import TextField from "@mui/material/TextField";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
-import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { UserContextApi } from "../../context/AuthContext";
@@ -15,10 +13,10 @@ import { NavLink } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import SwipeableTextMobileStepper from "../../carsoul/Carosul";
 import logo from "../../assets/reslogo2.jpg";
-
+import birdjson from "../../lottiefiles/bird.json";
+import Lottie from "lottie-react";
 
 const defaultTheme = createTheme();
-
 export default function Signup() {
   let navigate = useNavigate();
   const contextValue = useContext(UserContextApi);
@@ -34,21 +32,10 @@ export default function Signup() {
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-<<<<<<< HEAD
-    if (signup) {
-      signup(formData);
-      navigate("/");
-      window.location.reload();
-=======
-
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
     if (signup) {
       signup(formData);
       navigate("/login");
-    } else {
-      navigate("/");
->>>>>>> 9e4ac4be252faae70c1e99309fcb964e715baed7
+      window.location.reload();
     }
   };
 
@@ -67,7 +54,6 @@ export default function Signup() {
           item
           md={6}
           sx={{
-<<<<<<< HEAD
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
@@ -78,79 +64,51 @@ export default function Signup() {
           </Container>
         </Grid>
 
-        <Grid 
-        item xs={12} 
-        sm={8} 
-        md={6} 
-        component={Paper}
-        elevation={6} 
-        square>
+        <Grid item xs={12} sm={8} md={6} component={Paper} elevation={6} square>
           <Box
             sx={{
               marginTop: 8,
               display: "flex",
-              flexDirection: "column",
+              justifyContent: "center",
               alignItems: "center",
-               
             }}
           >
             <Box
-                sx={{
-                  height: "100%",
-                  maxWidth: "50%",
-                  display: "flex",
-                  justifyContent: "center",
-                  alignItems: "center",
-                }}
-              >
-                <img
-                  src={logo}
-                  alt="Logo"
-                  style={{
-                    width: "100%",
-                    height: "100%",
-                    objectFit: "cover",
-                  }}
-                />
-              </Box>
-            </Box>
-            <Box
               sx={{
-                my: 10,
-                mx: 7,
+                height: "100%",
+                maxWidth: "50%",
                 display: "flex",
-                flexDirection: "column",
+                justifyContent: "center",
                 alignItems: "center",
               }}
             >
-            <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
-              
-            </Avatar>
-            <Typography component="h1" variant="h5" style={{ textTransform: "capitalize" }}>
-              Sign up
-            </Typography>
-            <Box component="form" onSubmit={handleSubmit} sx={{ mt: 3 }}>
-=======
-            marginTop: 15,
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-          }}
-        >
-          <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
-            <LockOutlinedIcon />
-          </Avatar>
-          <Typography component="h1" variant="h5">
-            Sign up
-          </Typography>
-          <form>
-            <Box
-              component="form"
-              noValidate
-              onSubmit={handleSubmit}
-              sx={{ mt: 3 }}
-            >
->>>>>>> 9e4ac4be252faae70c1e99309fcb964e715baed7
+              <img
+                src={logo}
+                alt="Logo"
+                style={{
+                  width: "100%",
+                  height: "100%",
+                  objectFit: "cover",
+                }}
+              />
+            </Box>
+            <Lottie
+              animationData={birdjson}
+              style={{ height: "80px", width: "80px" }}
+            />
+          </Box>
+          <Box
+            sx={{
+              mx: 7,
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+            }}
+          >
+            
+            
+
+            <Box component="form" onSubmit={handleSubmit} sx={{ mt: 20 }}>
               <Grid container spacing={2}>
                 <Grid item xs={12} sm={6}>
                   <TextField
@@ -184,10 +142,7 @@ export default function Signup() {
                     id="email"
                     label="Email Address"
                     name="email"
-<<<<<<< HEAD
                     type="email"
-=======
->>>>>>> 9e4ac4be252faae70c1e99309fcb964e715baed7
                     value={formData.email}
                     onChange={handleInputChange}
                     autoComplete="email"
@@ -211,32 +166,21 @@ export default function Signup() {
                 type="submit"
                 fullWidth
                 variant="contained"
-                sx={{ mt: 3, mb: 2 }}
+                sx={{ mt: 3, mb: 2, p: 1.4 }}
               >
                 Sign Up
               </Button>
               <Grid container justifyContent="center">
                 <Grid item>
-<<<<<<< HEAD
-                  <NavLink to="/login">Already have an account? Sign In</NavLink>
-                </Grid>
-              </Grid>
-            </Box>
-            </Box>
-        </Grid>
-      </Grid>
-=======
                   <NavLink to="/login">
                     Already have an account? Sign In
                   </NavLink>
                 </Grid>
               </Grid>
             </Box>
-          </form>
-        </Box>
-   
-      </Container>
->>>>>>> 9e4ac4be252faae70c1e99309fcb964e715baed7
+          </Box>
+        </Grid>
+      </Grid>
     </ThemeProvider>
   );
 }
