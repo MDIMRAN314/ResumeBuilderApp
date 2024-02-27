@@ -15,10 +15,6 @@ import { PayloadProps } from '../../types/PayloadType';
 import { NavLink } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 
-
-
-
-
 const defaultTheme = createTheme();
 
 export default function Signup() {
