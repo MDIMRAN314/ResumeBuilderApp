@@ -11,15 +11,23 @@ import ResumePreview from "./ResumePreview";
 import AwardsAndAchievementForm from "../features/awardsAndAchievement/AwardsAndAchievementForm";
 import NavigationBar from "./Home/NavigationBar";
 import { UserContextApi } from "../context/AuthContext";
-import { Outlet, useNavigate } from "react-router-dom";
+import { Outlet, useLocation, useNavigate } from "react-router-dom";
 
 const ResumeContainer: React.FC = () => {
+  const { pathname } = useLocation();
+  // console.log(pathname);
+
   const navigate = useNavigate();
   const userContext = useContext(UserContextApi);
   const foundUser = userContext?.authState.payload;
 
   return (
     <>
+      {/* <LocalizationProvider dateAdapter={AdapterDayjs}> */}
+      {/* <CssBaseline /> */}
+      {/* <Navbar mode={"light"} toggleColorMode={function (): void {
+        throw new Error("Function not implemented.");
+      } } /> */}
       {foundUser ? (
         <>
           <NavigationBar foundUser={foundUser} />
@@ -28,6 +36,7 @@ const ResumeContainer: React.FC = () => {
             <Box mt={1}>
               <Grid container spacing={3}>
                 <Grid item xs={12} md={6} lg={5}>
+                  {/* <Paper sx={{ padding: 3, height: "90vh" }} square> */}
                   <AccordionForm title="Personal Information">
                     <PersonalInfoForm />
                   </AccordionForm>
@@ -49,13 +58,14 @@ const ResumeContainer: React.FC = () => {
                   <AccordionForm title="Certifications">
                     <CertificationForm />
                   </AccordionForm>
+                  {/* </Paper> */}
                 </Grid>
                 <Grid item xs={12} md={6} lg={7}>
-                  <ResumePreview />
-                  <Outlet />
+                    {pathname === "/resume/resume" ? <ResumePreview /> : <Outlet />}
                 </Grid>
               </Grid>
             </Box>
+            {/* <Button onClick={downloadResume}>Download Resume</Button> */}
           </Box>
         </>
       ) : (

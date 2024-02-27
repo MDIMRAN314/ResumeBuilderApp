@@ -1,45 +1,41 @@
-import * as React from 'react';
-import Avatar from '@mui/material/Avatar';
-import Button from '@mui/material/Button';
-import CssBaseline from '@mui/material/CssBaseline';
-import TextField from '@mui/material/TextField';
-import Grid from '@mui/material/Grid';
-import Box from '@mui/material/Box';
-import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
-import Typography from '@mui/material/Typography';
-import Container from '@mui/material/Container';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
-import { UserContextApi } from '../../context/AuthContext';
-import { useContext,useState } from 'react';
-import { PayloadProps } from '../../types/PayloadType';
-import { NavLink } from 'react-router-dom';
-import { useNavigate } from 'react-router-dom';
+import * as React from "react";
+import Button from "@mui/material/Button";
+import Paper from "@mui/material/Paper";
+import TextField from "@mui/material/TextField";
+import Grid from "@mui/material/Grid";
+import Box from "@mui/material/Box";
+import Container from "@mui/material/Container";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
+import { UserContextApi } from "../../context/AuthContext";
+import { useContext, useState } from "react";
+import { PayloadProps } from "../../types/PayloadType";
+import { NavLink } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import SwipeableTextMobileStepper from "../../carousel/Carousel";
+import logo from "../../assets/reslogo2.jpg";
+import birdjson from "../../lottiefiles/bird.json";
+import Lottie from "lottie-react";
 
 const defaultTheme = createTheme();
-
 export default function Signup() {
+  const navigate = useNavigate();
+  const contextValue = useContext(UserContextApi);
+  const signup = contextValue?.signup;
 
-let navigate = useNavigate();
-    const contextValue=useContext(UserContextApi)
-    const signup=contextValue?.signup
-    
-    
-    const [formData, setFormData] = useState<PayloadProps>({
-      firstName: "",
-      lastName: "",
-      email: "",
-      password: "",
-        });
-
-
+  const [formData, setFormData] = useState<PayloadProps>({
+    firstName: "",
+    lastName: "",
+    email: "",
+    password: "",
+  });
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+
     if (signup) {
       signup(formData);
       navigate("/login");
-    } else {
-      navigate("/");
+      window.location.reload();
     }
   };
 
@@ -53,29 +49,63 @@ let navigate = useNavigate();
 
   return (
     <ThemeProvider theme={defaultTheme}>
-      <Container component="main" maxWidth="xs">
-        <CssBaseline />
-        <Box
+      <Grid container component="main" sx={{ height: "100vh", width: "100%" }}>
+        <Grid
+          item
+          md={6}
           sx={{
-            marginTop: 15,
             display: "flex",
-            flexDirection: "column",
+            justifyContent: "center",
             alignItems: "center",
           }}
         >
-          <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
-            <LockOutlinedIcon />
-          </Avatar>
-          <Typography component="h1" variant="h5">
-            Sign up
-          </Typography>
-          <form>
+          <Container sx={{ padding: "0px !important" }}>
+            <SwipeableTextMobileStepper />
+          </Container>
+        </Grid>
+
+        <Grid item xs={12} sm={8} md={6} component={Paper} elevation={6} square>
+          <Box
+            sx={{
+              marginTop: 8,
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
             <Box
-              component="form"
-              noValidate
-              onSubmit={handleSubmit}
-              sx={{ mt: 3 }}
+              sx={{
+                height: "100%",
+                maxWidth: "50%",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
             >
+              <img
+                src={logo}
+                alt="Logo"
+                style={{
+                  width: "100%",
+                  height: "100%",
+                  objectFit: "cover",
+                }}
+              />
+            </Box>
+            <Lottie
+              animationData={birdjson}
+              style={{ height: "80px", width: "80px" }}
+            />
+          </Box>
+          <Box
+            sx={{
+              mx: 7,
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+            }}
+          >
+            <Box component="form" onSubmit={handleSubmit} sx={{ mt: 20 }}>
               <Grid container spacing={2}>
                 <Grid item xs={12} sm={6}>
                   <TextField
@@ -109,6 +139,7 @@ let navigate = useNavigate();
                     id="email"
                     label="Email Address"
                     name="email"
+                    type="email"
                     value={formData.email}
                     onChange={handleInputChange}
                     autoComplete="email"
@@ -132,7 +163,7 @@ let navigate = useNavigate();
                 type="submit"
                 fullWidth
                 variant="contained"
-                sx={{ mt: 3, mb: 2 }}
+                sx={{ mt: 3, mb: 2, p: 1.4 }}
               >
                 Sign Up
               </Button>
@@ -144,10 +175,9 @@ let navigate = useNavigate();
                 </Grid>
               </Grid>
             </Box>
-          </form>
-        </Box>
-   
-      </Container>
+          </Box>
+        </Grid>
+      </Grid>
     </ThemeProvider>
   );
 }

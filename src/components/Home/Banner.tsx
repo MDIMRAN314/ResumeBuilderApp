@@ -6,25 +6,19 @@ import all from "../../assets/black-logo-1.svg";
 import { Link } from "react-router-dom";
 import { useContext, useEffect, useState } from "react";
 import { UserContextApi } from "../../context/AuthContext";
-
 const Banner = () => {
   const userContext = useContext(UserContextApi);
   const foundUser = userContext?.authState.payload;
-
   const [currentBannerIndex, setCurrentBannerIndex] = useState(0);
-
   const bannerImages = [bannerimg1, bannerimg2, bannerimg3];
-
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentBannerIndex(
         (prevIndex) => (prevIndex + 1) % bannerImages.length
       );
     }, 4000);
-
     return () => clearInterval(interval);
   }, [bannerImages.length]);
-
   return (
     <section className="main-banner-container">
       <main className="bannerContainer">
@@ -47,7 +41,7 @@ const Banner = () => {
             resume builder platform.
           </p>
           {foundUser ? (
-            <Link to="/resume">
+            <Link to="/resume/resume">
               <button className="create-button">Create My Resume Now</button>
             </Link>
           ) : (
@@ -74,5 +68,4 @@ const Banner = () => {
     </section>
   );
 };
-
 export default Banner;

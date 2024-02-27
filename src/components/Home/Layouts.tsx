@@ -5,7 +5,7 @@ const Layouts = () => {
     <>
       <Outlet />
     </>
-  );
+  );r
 };
 
 export default Layouts;

@@ -5,13 +5,30 @@
 @use "../src/components/Home/scss/partials/nav";
 
 //banner css
-@use "../src/components/Home/scss/partials/banner";
+@use "../src/components/Home//scss/partials/banner";
 
 //template css
 @use "../src/components/Home/scss/partials/template";
 
 //pageNotFound
 @use "../src/components/Home/scss/partials/pageNot";
+
+//footer css
+@use "../src/components/Home/scss/partials/footer";
+
+//Faq pages
+@use "../src/components/Home/scss/partials/faq";
+
+//Template 1 scss
+@use "../src/components/Home/scss/partials/template1";
+
+// Template 2 scss
+@use "../src/components/Home/scss/partials/template2";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 body {
   scrollbar-width: thin;
   scrollbar-color: transparent transparent;

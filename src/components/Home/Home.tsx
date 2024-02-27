@@ -3,6 +3,8 @@ import Banner from "./Banner";
 import NavigationBar from "./NavigationBar";
 import TemplateSec from "./TemplateSec";
 import { UserContextApi } from "../../context/AuthContext";
+import Footer from "./Footer";
+import { Faq } from "./Faq";
 
 export const Home = () => {
   const userContext = useContext(UserContextApi);
@@ -14,6 +16,8 @@ export const Home = () => {
         <NavigationBar foundUser={foundUser} />
         <Banner />
         <TemplateSec />
+        <Faq />
+        <Footer />
       </section>
     </>
   );

@@ -12,7 +12,6 @@ import {
   editWorkExperience,
 } from "./WorkExperienceSlice";
 import { Delete } from "@mui/icons-material";
-
 const WorkExperienceForm: React.FC = () => {
   const dispatch = useDispatch();
   const workExperience = useSelector(
@@ -193,13 +192,15 @@ const WorkExperienceForm: React.FC = () => {
             </div>
           )
         )}
-        <Button
-          variant="contained"
-          color="primary"
-          onClick={handleAddWorkExperience}
-        >
-          Add Work Experience
-        </Button>
+       {workExperience.entries.length === 0 && (
+          <Button
+            variant="contained"
+            color="primary"
+            onClick={handleAddWorkExperience}
+          >
+            Add Work Experience
+          </Button>
+        )}
       </form>
     </Box>
   );

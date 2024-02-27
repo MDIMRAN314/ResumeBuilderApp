@@ -1,10 +1,8 @@
-// resumeSlice.ts
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import axios from "axios";
 
 interface ResumeState {
-  resume: any; // Adjust the type according to your resume structure
-}
+  resume: object
+}[];
 
 const initialState: ResumeState = {
   resume: {},
@@ -14,7 +12,7 @@ const resumeSlice = createSlice({
   name: "resume",
   initialState,
   reducers: {
-    setResume: (state, action: PayloadAction<any>) => {
+    setResume: (state, action: PayloadAction<object>) => {
       state.resume = action.payload;
     },
   },
@@ -22,5 +20,3 @@ const resumeSlice = createSlice({
 
 export const { setResume } = resumeSlice.actions;
 export default resumeSlice.reducer;
-
-// Add this reducer to your rootReducer

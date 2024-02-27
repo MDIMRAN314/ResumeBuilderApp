@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import logo from "../../assets/reslogo2.jpg";
 import { PayloadProps } from "../../types/PayloadType";
 import html2pdf from "html2pdf.js";
@@ -7,8 +7,11 @@ export interface FoundUserType {
   foundUser: PayloadProps | null | undefined;
 }
 const NavigationBar = ({ foundUser }: FoundUserType) => {
+  const { pathname } = useLocation();
+
   const downloadResume = () => {
-    const element = document.getElementById("resume-builder");
+    const element = document.getElementById(pathname);
+    console.log(element);
     if (element) {
       html2pdf(element, {
         margin: 0.5,
@@ -71,9 +74,13 @@ const NavigationBar = ({ foundUser }: FoundUserType) => {
             </div>
 
             <div className="create-btn">
-              <Link to="/resume">
+              {pathname === "/" ? (
+                <Link to={`/resume`}>
+                  <button>Create Resume</button>
+                </Link>
+              ) : (
                 <button onClick={downloadResume}>Download Resume</button>
-              </Link>
+              )}
             </div>
           </nav>
         </div>

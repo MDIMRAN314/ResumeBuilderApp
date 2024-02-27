@@ -16,11 +16,8 @@ type SignInType = {
 
 interface ContextValueType {
   authState: AuthState;
-  signup: (payload: PayloadProps | null) => Promise<void>;
-  signIn: (
-    payload: SignInType,
-    users: UsersStateType
-  ) => boolean | PayloadProps;
+  signup: (payload: PayloadProps | null) => Promise<void>; // Return type added for consistency
+  signIn: (payload: SignInType, users: UsersStateType) => boolean | PayloadProps;
 }
 
 export const UserContextApi = createContext<ContextValueType | null>(null);
@@ -32,6 +29,7 @@ const initialState: AuthState = {
 
 const UserContextProvider = ({ children }: UserContextProviderProps) => {
   const [auth, dispatch] = useReducer(authReducer, initialState);
+  //signup
   const signup = async (payload: PayloadProps | null): Promise<void> => {
     try {
       if (payload) {
@@ -39,10 +37,13 @@ const UserContextProvider = ({ children }: UserContextProviderProps) => {
           "http://localhost:5000/users",
           payload
         );
+        toast.success("successfully registered")
         dispatch({ type: "SIGNUP", payload: data });
+      } else {
+        console.error("Payload is null");
       }
     } catch (error) {
-      throw Error("error");
+      console.error("Error occurred during signup:", error);
     }
   };
 
@@ -56,7 +57,7 @@ const UserContextProvider = ({ children }: UserContextProviderProps) => {
     }
 
     const foundUser = users.find((user) => user.email === email);
-
+    
     if (!foundUser) {
       toast.error("User with provided email does not exist");
       return false;
@@ -68,8 +69,9 @@ const UserContextProvider = ({ children }: UserContextProviderProps) => {
     }
 
     toast.success("Successfully Logged In!");
+    // Dispatch an action to update the authentication state upon successful login
     dispatch({ type: "LOGIN", payload: foundUser });
-    return true;
+    return foundUser;
   };
 
   const contextValue: ContextValueType = {
@@ -80,7 +82,7 @@ const UserContextProvider = ({ children }: UserContextProviderProps) => {
 
   return (
     <>
-      <Toaster />
+      <Toaster></Toaster>
       <UserContextApi.Provider value={contextValue}>
         {children}
       </UserContextApi.Provider>
