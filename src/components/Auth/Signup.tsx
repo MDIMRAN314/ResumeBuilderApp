@@ -11,14 +11,22 @@ import { useContext, useState } from "react";
 import { PayloadProps } from "../../types/PayloadType";
 import { NavLink } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+<<<<<<< HEAD
 import SwipeableTextMobileStepper from "../../carousel/Carousel";
+=======
+import SwipeableTextMobileStepper from "../../carsoul/Carosul";
+>>>>>>> 36dd4fa5b8ee9d5593c7eeb78f0f239a9e796903
 import logo from "../../assets/reslogo2.jpg";
 import birdjson from "../../lottiefiles/bird.json";
 import Lottie from "lottie-react";
 
 const defaultTheme = createTheme();
 export default function Signup() {
+<<<<<<< HEAD
   const navigate = useNavigate();
+=======
+  let navigate = useNavigate();
+>>>>>>> 36dd4fa5b8ee9d5593c7eeb78f0f239a9e796903
   const contextValue = useContext(UserContextApi);
   const signup = contextValue?.signup;
 
@@ -105,6 +113,12 @@ export default function Signup() {
               alignItems: "center",
             }}
           >
+<<<<<<< HEAD
+=======
+            
+            
+
+>>>>>>> 36dd4fa5b8ee9d5593c7eeb78f0f239a9e796903
             <Box component="form" onSubmit={handleSubmit} sx={{ mt: 20 }}>
               <Grid container spacing={2}>
                 <Grid item xs={12} sm={6}>

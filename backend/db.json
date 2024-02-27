@@ -5,7 +5,8 @@
       "firstName": "dhanush",
       "lastName": "bh",
       "email": "dhanush@gmail.com",
-      "password": "1234"
+      "password": "1234",
+      "resume": []
     },
     {
       "id": "8844",
@@ -139,6 +140,38 @@
       "lastName": "gavane",
       "email": "ganesh@gmail.com",
       "password": "ganesh@123"
+<<<<<<< HEAD
+=======
+    },
+    {
+<<<<<<< HEAD
+      "id": "58d9",
+      "firstName": "dhanush",
+      "lastName": "bhhh",
+      "email": "bhimavarapu1234@gmail.com",
+      "password": "1234"
+    },
+    {
+      "id": "69d9",
+      "firstName": "imran",
+      "lastName": "md 2",
+      "email": "imaran2@gmail.com",
+      "password": "1234"
+=======
+      "id": "f0b5",
+      "firstName": "md",
+      "lastName": "imran",
+      "email": "imran@example.com",
+      "password": "imran"
+    },
+    {
+      "id": "ac54",
+      "firstName": "xx",
+      "lastName": "xx",
+      "email": "xx@xx",
+      "password": "xx"
+>>>>>>> 9e4ac4be252faae70c1e99309fcb964e715baed7
+>>>>>>> 36dd4fa5b8ee9d5593c7eeb78f0f239a9e796903
     }
   ]
 }
