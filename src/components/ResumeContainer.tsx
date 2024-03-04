@@ -36,7 +36,6 @@ const ResumeContainer: React.FC = () => {
             <Box mt={1}>
               <Grid container spacing={3}>
                 <Grid item xs={12} md={6} lg={5}>
-                  {/* <Paper sx={{ padding: 3, height: "90vh" }} square> */}
                   <AccordionForm title="Personal Information">
                     <PersonalInfoForm />
                   </AccordionForm>
@@ -58,14 +57,12 @@ const ResumeContainer: React.FC = () => {
                   <AccordionForm title="Certifications">
                     <CertificationForm />
                   </AccordionForm>
-                  {/* </Paper> */}
                 </Grid>
                 <Grid item xs={12} md={6} lg={7}>
                     {pathname === "/resume/resume" ? <ResumePreview /> : <Outlet />}
                 </Grid>
               </Grid>
             </Box>
-            {/* <Button onClick={downloadResume}>Download Resume</Button> */}
           </Box>
         </>
       ) : (

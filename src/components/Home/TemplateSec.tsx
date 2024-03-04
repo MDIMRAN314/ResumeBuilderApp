@@ -18,7 +18,7 @@ const TemplateSec = () => {
       <main className="templates">
         <div>
           <Link to="/resume/resume">
-            <img src={re1} alt="" />
+            <img src={re3} alt="" />
           </Link>
         </div>
         <div>

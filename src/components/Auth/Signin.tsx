@@ -20,6 +20,7 @@ import { NavLink, useNavigate } from "react-router-dom";
 import { Container } from "@mui/material";
 import logo from "../../assets/reslogo2.jpg";
 import lockjson from "../../lottiefiles/lock.json";
+// import resumeicon2 from "../../lottiefiles/resumeicon2.json";
 import resumeicon3 from "../../lottiefiles/resumeicon3.json";
 
 const defaultTheme = createTheme();
@@ -145,8 +146,7 @@ export default function Signin() {
             </Box>
             <Box
               sx={{
-                my: 10,
-                mx: 7,
+                my: 5,
                 display: "flex",
                 flexDirection: "column",
                 alignItems: "center",

@@ -1,6 +1,6 @@
 import { Box, TextField } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "../../components/App/Store";
+import { RootState } from "../../App/Store";
 import { updateSummary } from "./SummarySlice";
 
 const SummaryForm: React.FC = () => {

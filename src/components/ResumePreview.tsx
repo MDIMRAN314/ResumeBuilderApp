@@ -17,7 +17,6 @@ import { AwardsAndAchievementEntry } from "../features/awardsAndAchievement/Awar
 import { WorkExperienceEntry } from "../features/WorkExperience/WorkExperienceSlice";
 import { CertificationEntry } from "../features/certifications/CertificationSlice";
 import { RootState } from "../App/Store";
-// import { useLocation } from "react-router-dom";
 
 const ResumePreview: React.FC = () => {
   // const { pathname } = useLocation();
@@ -36,8 +35,8 @@ const ResumePreview: React.FC = () => {
 
   return (
     <Container>
-      <Paper elevation={2} square>
-        <Box id="resume" p={2}>
+      <Paper elevation={3} square sx={{ p: "10px 32px" }}>
+        <Box id="resume">
           <Box sx={{ textAlign: "center" }}>
             <Typography variant="h4" color="primary.dark">
               {personalInfo?.firstName} {personalInfo?.lastName}
@@ -74,8 +73,10 @@ const ResumePreview: React.FC = () => {
               (entry: WorkExperienceEntry, index: number) => (
                 <Typography key={index} variant="body2" sx={{ mt: 1 }}>
                   {dayjs(entry.start_date).format("MMM YYYY")} -{" "}
-                  {dayjs(entry.end_date).format("MMM YYYY")} {entry.designation}
-                  {entry.company}, {entry.location}
+                  {dayjs(entry.end_date).format("MMM YYYY")}
+                  <Typography>
+                    {entry.designation}, {entry.company} - {entry.location}
+                  </Typography>
                   <List>
                     {Array.isArray(entry.roleDescription) &&
                       entry.roleDescription.map(
