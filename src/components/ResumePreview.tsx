@@ -19,8 +19,6 @@ import { CertificationEntry } from "../features/certifications/CertificationSlic
 import { RootState } from "../App/Store";
 
 const ResumePreview: React.FC = () => {
-  // const { pathname } = useLocation();
-
   const personalInfo = useSelector((state: RootState) => state.personalInfo);
   const education = useSelector((state: RootState) => state.education);
   const workExperience = useSelector(
@@ -36,7 +34,7 @@ const ResumePreview: React.FC = () => {
   return (
     <Container>
       <Paper elevation={3} square sx={{ p: "10px 32px" }}>
-        <Box id="resume">
+        <Box id="/resume/resume">
           <Box sx={{ textAlign: "center" }}>
             <Typography variant="h4" color="primary.dark">
               {personalInfo?.firstName} {personalInfo?.lastName}

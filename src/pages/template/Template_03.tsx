@@ -32,7 +32,7 @@ const Template_03 = () => {
   return (
     <Container>
       <Box>
-        <div id="/resume/resume_3" className="temp2-main-container">
+        <div id="/resume/resume_2" className="temp2-main-container">
           <div className="temp2-container">
             <Paper className="temp2-content">
               {/* left content section */}
@@ -95,35 +95,7 @@ const Template_03 = () => {
                   )}
                 </div>
               </div>
-
-              {/* 
-                languages section
-                <div className="temp2-left-lang">
-                  <div className="temp2-lang-heading">
-                    <span>
-                      <PublicIcon />
-                    </span>
-                    <span>Languages</span>
-                  </div>
-                  <div className="temp2-lang">English</div>
-                  <div className="temp2-lang">French</div>
-                </div> */}
-
-              {/* quote section */}
-              {/* <div className="temp2-left-quote">
-                  <div className="temp2-quote-heading">
-                    <span>
-                      <FormatQuoteIcon />
-                    </span>
-                    <span>Favorite Quote</span>
-                  </div>
-                  <div className="temp2-quote">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Atque, tempora?
-                  </div>
-                </div>
-              </div> */}
-
+              
               {/* right content section */}
               <div className="temp2-right-content">
                 {/* about section */}
@@ -207,7 +179,7 @@ const Template_03 = () => {
                   </div>
                 </div>
 
-                {/* interests section */}
+                {/* certification section */}
                 <div className="temp2-interests">
                   <div className="temp2-interest-heading">
                     <span>

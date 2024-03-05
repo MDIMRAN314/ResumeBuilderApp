@@ -10,15 +10,14 @@ import CertificationForm from "../features/certifications/CertificationForm";
 import ResumePreview from "./ResumePreview";
 import AwardsAndAchievementForm from "../features/awardsAndAchievement/AwardsAndAchievementForm";
 import NavigationBar from "./Home/NavigationBar";
-import { UserContextApi } from "../context/AuthContext";
 import { Outlet, useLocation, useNavigate } from "react-router-dom";
 
 const ResumeContainer: React.FC = () => {
   const { pathname } = useLocation();
 
   const navigate = useNavigate();
-  const userContext = useContext(UserContextApi);
-  const foundUser = userContext?.authState.payload;
+  const foundUser = window.localStorage.getItem("login");
+
 
   return (
     <>
@@ -27,7 +26,7 @@ const ResumeContainer: React.FC = () => {
           <NavigationBar foundUser={foundUser} />
           <Box component="main" p={3} sx={{ flexGrow: 1 }}>
             <CssBaseline />
-            <Box mt={1}>
+            <Box>
               <Grid container spacing={3}>
                 <Grid item xs={12} md={6} lg={5}>
                   <AccordionForm title="Personal Information">
@@ -53,7 +52,11 @@ const ResumeContainer: React.FC = () => {
                   </AccordionForm>
                 </Grid>
                 <Grid item xs={12} md={6} lg={7}>
-                    {pathname === "/resume/resume" ? <ResumePreview /> : <Outlet />}
+                  {pathname === "/resume/resume" ? (
+                    <ResumePreview />
+                  ) : (
+                    <Outlet />
+                  )}
                 </Grid>
               </Grid>
             </Box>

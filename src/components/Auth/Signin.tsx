@@ -58,6 +58,7 @@ export default function Signin() {
       if (signIn && users) {
         const result = signIn(authData, users);
         if (result) {
+          window.localStorage.setItem("login", result?.id);
           navigate("/");
         } else {
           navigate("/signin");

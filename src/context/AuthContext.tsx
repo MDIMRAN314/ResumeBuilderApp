@@ -29,7 +29,6 @@ const initialState: AuthState = {
 
 const UserContextProvider = ({ children }: UserContextProviderProps) => {
   const [auth, dispatch] = useReducer(authReducer, initialState);
-  //signup
   const signup = async (payload: PayloadProps | null): Promise<void> => {
     try {
       if (payload) {

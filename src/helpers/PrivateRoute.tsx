@@ -1,6 +1,5 @@
-import React, { useContext } from "react";
+import React from "react";
 import { PayloadProps } from "../types/PayloadType";
-import { UserContextApi } from "../context/AuthContext";
 import { Navigate } from "react-router-dom";
 
 export interface FoundUserType {
@@ -12,8 +11,7 @@ type Props = {
 };
 
 const PrivateRoute = ({ children }: Props) => {
-  const userContext = useContext(UserContextApi);
-  const foundUser = userContext?.authState.payload;
+ const foundUser =  window.localStorage.getItem("login")
 
   if (!foundUser) {
     return <Navigate to="/signin" />;

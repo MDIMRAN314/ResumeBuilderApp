@@ -14,17 +14,17 @@ interface AccordionFormProps {
 
 const AccordionForm: React.FC<AccordionFormProps> = ({ title, children }) => {
   return (
-    <Accordion>
-      <AccordionSummary
-        expandIcon={<KeyboardArrowDownIcon />}
-        aria-controls="panel1a-content"
-        id="panel1a-header"
-      >
-        <Typography component={"h5"}>{title}</Typography>
-      </AccordionSummary>
-      <Divider />
-      <AccordionDetails>{children}</AccordionDetails>
-    </Accordion>
+      <Accordion>
+        <AccordionSummary
+          expandIcon={<KeyboardArrowDownIcon />}
+          aria-controls="panel1a-content"
+          id="panel1a-header"
+        >
+          <Typography component={"h5"}>{title}</Typography>
+        </AccordionSummary>
+        <Divider />
+        <AccordionDetails>{children}</AccordionDetails>
+      </Accordion>
   );
 };
 
