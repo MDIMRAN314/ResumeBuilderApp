@@ -8,9 +8,8 @@ import { AwardsAndAchievementEntry } from "../../features/awardsAndAchievement/A
 import { EducationEntry } from "../../features/education/EducationSlice";
 import dayjs from "dayjs";
 import { WorkExperienceEntry } from "../../features/WorkExperience/WorkExperienceSlice";
-import { useLocation } from "react-router-dom";
 
-const Templete_01: React.FC = () => {
+const Template_01: React.FC = () => {
   const personalInfo = useSelector((state: RootState) => state.personalInfo);
   const education = useSelector((state: RootState) => state.education);
   const workExperience = useSelector(
@@ -22,13 +21,10 @@ const Templete_01: React.FC = () => {
     (state: RootState) => state.awardsAndAchievement
   );
   const certification = useSelector((state: RootState) => state.certification);
-
-  const { pathname } = useLocation();
-  console.log(pathname);
   return (
     <div>
       <div
-        id= "/resume/resume_1"
+        id="/resume/resume_1"
         className="resume w-[100%] px-10 text-justify border-t-orange-600 border-t-[2rem] shadow-md pb-8"
       >
         <header className="resume-header p-5 border-b-2">
@@ -117,4 +113,4 @@ const Templete_01: React.FC = () => {
   );
 };
 
-export default Templete_01;
+export default Template_01;

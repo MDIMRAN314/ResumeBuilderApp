@@ -91,7 +91,6 @@
 
 // export default NavigationBar;
 
-
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import logo from "../../assets/reslogo2.jpg";
@@ -132,7 +131,7 @@ const NavigationBar: React.FC<FoundUserType> = ({ foundUser }) => {
         <Link to="/">Cover Letters</Link>
       </li>
       <li>
-        <Link to="/login">Login</Link>
+        <Link to="/signin">Login</Link>
       </li>
       <li>
         <Link to="/signup">SignUp</Link>
@@ -154,14 +153,10 @@ const NavigationBar: React.FC<FoundUserType> = ({ foundUser }) => {
         <Link to="/">Cover Letters</Link>
       </li>
       <li>
-        <Link to="/login">Logout</Link>
+        <Link to="/signin">Logout</Link>
       </li>
       <li className="create-btn">
-        {pathname === "/" ? (
-          <Link to={`/resume/resume`}>
-            <button>Create Resume</button>
-          </Link>
-        ) : (
+        {pathname.includes("/resume/resume") && (
           <button onClick={downloadResume}>Download Resume</button>
         )}
       </li>

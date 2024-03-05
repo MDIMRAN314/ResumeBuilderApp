@@ -6,7 +6,6 @@ import BusinessCenterIcon from "@mui/icons-material/BusinessCenter";
 import SchoolIcon from "@mui/icons-material/School";
 import BadgeIcon from "@mui/icons-material/Badge";
 import PsychologyIcon from "@mui/icons-material/Psychology";
-import { useState } from "react";
 import { useSelector } from "react-redux";
 import { RootState } from "../../App/Store";
 import { WorkExperienceEntry } from "../../features/WorkExperience/WorkExperienceSlice";
@@ -14,10 +13,11 @@ import dayjs from "dayjs";
 import { EducationEntry } from "../../features/education/EducationSlice";
 import { AwardsAndAchievementEntry } from "../../features/awardsAndAchievement/AwardsAndAchievementSlice";
 import { CertificationEntry } from "../../features/certifications/CertificationSlice";
-import { Button } from "@mui/material";
-import html2pdf from "html2pdf.js";
+import { SkillsEntry } from "../../features/skills/SkillsSlice";
+import { AutoAwesomeMosaicRounded } from "@mui/icons-material";
 
-const Templete_02 = () => {
+
+const Template_02 = () => {
   const personalInfo = useSelector((state: RootState) => state.personalInfo);
   const education = useSelector((state: RootState) => state.education);
   const workExperience = useSelector(
@@ -30,14 +30,14 @@ const Templete_02 = () => {
   );
   const certification = useSelector((state: RootState) => state.certification);
 
-  const [value, setValue] = useState<number | null>(3);
-  console.log(value);
-  const handleChange = (
-    _event: React.ChangeEvent<{}>,
-    newValue: number | null
-  ) => {
-    setValue(newValue);
-  };
+  // const [value, setValue] = useState<number | null>(3);
+  // console.log(value);
+  // const handleChange = (
+  //   _event: React.ChangeEvent<{}>,
+  //   newValue: number | null
+  // ) => {
+  //   setValue(newValue);
+  // };
 
   return (
     <div>
@@ -287,9 +287,32 @@ const Templete_02 = () => {
             </div>
             <div className="skill-details">
               <div className="skill-course">
+                {skills.entries.map(
+                  (entry: SkillsEntry, index: number) => (
+                    <div className="skill-content" key={index}>
+                      <span>{entry.skill}</span>
+                    </div>
+                  )
+                )}
+              </div>
+            </div>
+          </div>
+
+          {/*awards section */}
+          <div className="skills">
+            <div className="skill-heading">
+              <span>
+                <AutoAwesomeMosaicRounded/>
+              </span>
+              <span>
+                <h4>Awards</h4>
+              </span>
+            </div>
+            <div className="skill-details">
+              <div className="skill-course">
                 {awardsAndAchievement.entries.map(
                   (entry: AwardsAndAchievementEntry, index: number) => (
-                    <div className="skill-content" key={index}>
+                    <div className="award-content" key={index}>
                       <span>{entry.awards}</span>
                     </div>
                   )
@@ -303,4 +326,4 @@ const Templete_02 = () => {
   );
 };
 
-export default Templete_02;
+export default Template_02;

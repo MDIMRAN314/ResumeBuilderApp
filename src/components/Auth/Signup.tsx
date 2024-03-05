@@ -170,7 +170,7 @@ export default function Signup() {
               </Button>
               <Grid container justifyContent="center">
                 <Grid item>
-                  <NavLink to="/login">
+                  <NavLink to="/signin">
                     Already have an account? Sign In
                   </NavLink>
                 </Grid>

@@ -1,9 +1,7 @@
-import { Box, Button, Container, Paper } from "@mui/material";
+import { Box, Container, Paper } from "@mui/material";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import LocalPhoneIcon from "@mui/icons-material/LocalPhone";
 import MailIcon from "@mui/icons-material/Mail";
-import PublicIcon from "@mui/icons-material/Public";
-import FormatQuoteIcon from "@mui/icons-material/FormatQuote";
 import BusinessCenterIcon from "@mui/icons-material/BusinessCenter";
 import SchoolIcon from "@mui/icons-material/School";
 import PsychologyIcon from "@mui/icons-material/Psychology";
@@ -15,9 +13,8 @@ import dayjs from "dayjs";
 import { EducationEntry } from "../../features/education/EducationSlice";
 import AddModeratorIcon from "@mui/icons-material/AddModerator";
 import { AwardsAndAchievementEntry } from "../../features/awardsAndAchievement/AwardsAndAchievementSlice";
-import html2pdf from "html2pdf.js";
 
-const Templete_03 = () => {
+const Template_03 = () => {
   const personalInfo = useSelector((state: RootState) => state.personalInfo);
   const education = useSelector((state: RootState) => state.education);
   const workExperience = useSelector(
@@ -238,4 +235,4 @@ const Templete_03 = () => {
   );
 };
 
-export default Templete_03;
+export default Template_03;

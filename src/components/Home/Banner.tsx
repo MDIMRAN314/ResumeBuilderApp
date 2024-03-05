@@ -45,7 +45,7 @@ const Banner = () => {
               <button className="create-button">Create My Resume Now</button>
             </Link>
           ) : (
-            <Link to="/login">
+            <Link to="/signin">
               <button className="create-button">Create My Resume Now</button>
             </Link>
           )}

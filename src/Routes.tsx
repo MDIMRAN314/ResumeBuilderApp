@@ -7,9 +7,10 @@ import Layouts from "./components/Home/Layouts";
 import ResumeContainer from "./components/ResumeContainer";
 import PublicRoute from "./helpers/PublicRoute";
 import PrivateRoute from "./helpers/PrivateRoute";
-import Templete_01 from "./pages/templete/Templete_01";
-import Templete_02 from "./pages/templete/Templete_02";
-import Templete_03 from "./pages/templete/Templete_03";
+import Template_01 from "./pages/template/Template_01";
+import Template_03 from "./pages/template/Template_03";
+import Template_02 from "./pages/template/Template_02";
+
 
 const Routes = () => {
   const router = createBrowserRouter([
@@ -22,7 +23,7 @@ const Routes = () => {
           element: <Home />,
         },
         {
-          path: "/login",
+          path: "/signin",
           element: (
             <PublicRoute>
               <Signin />
@@ -38,7 +39,6 @@ const Routes = () => {
           ),
         },
         {
-          path: "/resume",
           element: (
             <PrivateRoute>
               <ResumeContainer />
@@ -57,7 +57,7 @@ const Routes = () => {
               path: "/resume/resume_1",
               element: (
                 <PrivateRoute>
-                  <Templete_01 />
+                  <Template_01 />
                 </PrivateRoute>
               ),
             },
@@ -65,7 +65,7 @@ const Routes = () => {
               path: "/resume/resume_2",
               element: (
                 <PrivateRoute>
-                  <Templete_03 />
+                  <Template_03 />
                 </PrivateRoute>
               ),
             },
@@ -73,7 +73,7 @@ const Routes = () => {
               path: "/resume/resume_3",
               element: (
                 <PrivateRoute>
-                  <Templete_02 />
+                  <Template_02 />
                 </PrivateRoute>
               ),
             },

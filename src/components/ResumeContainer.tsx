@@ -15,7 +15,6 @@ import { Outlet, useLocation, useNavigate } from "react-router-dom";
 
 const ResumeContainer: React.FC = () => {
   const { pathname } = useLocation();
-  // console.log(pathname);
 
   const navigate = useNavigate();
   const userContext = useContext(UserContextApi);
@@ -23,11 +22,6 @@ const ResumeContainer: React.FC = () => {
 
   return (
     <>
-      {/* <LocalizationProvider dateAdapter={AdapterDayjs}> */}
-      {/* <CssBaseline /> */}
-      {/* <Navbar mode={"light"} toggleColorMode={function (): void {
-        throw new Error("Function not implemented.");
-      } } /> */}
       {foundUser ? (
         <>
           <NavigationBar foundUser={foundUser} />
