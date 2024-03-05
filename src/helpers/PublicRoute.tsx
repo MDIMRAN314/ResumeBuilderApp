@@ -5,10 +5,9 @@ import { Navigate } from "react-router-dom";
 type Props = {
   children: React.ReactNode;
 };
-
 const PublicRoute = ({ children }: Props) => {
   const userContext = useContext(UserContextApi);
-  let foundUser = userContext?.authState.payload;
+  const foundUser = userContext?.authState.payload;
 
   if (foundUser) {
     return <Navigate to="/" />;

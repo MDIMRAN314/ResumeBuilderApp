@@ -92,7 +92,7 @@
 // export default NavigationBar;
 
 import React from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import logo from "../../assets/reslogo2.jpg";
 import { PayloadProps } from "../../types/PayloadType";
 import html2pdf from "html2pdf.js";
@@ -103,8 +103,14 @@ export interface FoundUserType {
 
 const NavigationBar: React.FC<FoundUserType> = ({ foundUser }) => {
   const { pathname } = useLocation();
+  const navigate = useNavigate();
 
-  const downloadResume = () => {
+  const handleLogout = () => {
+    navigate("/");
+    window.location.reload();
+  };
+
+  const downloadResume = async () => {
     const element = document.getElementById(pathname);
     if (element) {
       html2pdf(element, {
@@ -153,7 +159,7 @@ const NavigationBar: React.FC<FoundUserType> = ({ foundUser }) => {
         <Link to="/">Cover Letters</Link>
       </li>
       <li>
-        <Link to="/signin">Logout</Link>
+        <button onClick={handleLogout}>Logout</button>
       </li>
       <li className="create-btn">
         {pathname.includes("/resume/resume") && (

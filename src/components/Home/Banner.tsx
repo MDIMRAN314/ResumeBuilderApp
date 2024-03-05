@@ -19,6 +19,7 @@ const Banner = () => {
     }, 4000);
     return () => clearInterval(interval);
   }, [bannerImages.length]);
+
   return (
     <section className="main-banner-container">
       <main className="bannerContainer">
@@ -34,21 +35,25 @@ const Banner = () => {
         </aside>
         <article className="bannerContent">
           <h1>
-            The Best Online <span>Resume</span> Builder{" "}
+            The Best Online <br />
+            <span>Resume</span> Builder{" "}
           </h1>
           <p className="para">
             Easily create the perfect resume for any job using our best-in-class
             resume builder platform.
           </p>
-          {foundUser ? (
-            <Link to="/resume/resume">
-              <button className="create-button">Create My Resume Now</button>
-            </Link>
-          ) : (
-            <Link to="/signin">
-              <button className="create-button">Create My Resume Now</button>
-            </Link>
-          )}
+          <span className="btn-group">
+            {foundUser ? (
+              <Link to="/resume/resume">
+                <button className="create-button">Create My Resume Now</button>
+              </Link>
+            ) : (
+              <Link to="/signin">
+                <button className="create-button">Create My Resume Now</button>
+              </Link>
+            )}
+          </span>
+
           <p className="hirePara">Subscribers have been hired by:</p>
           <div className="marquee-container">
             <img src={all} alt="Marquee" className="marquee-image" />
@@ -56,7 +61,7 @@ const Banner = () => {
         </article>
       </main>
       <article className="paraAbout">
-        <p>
+        <p className="about-para">
           Our online resume builder offers a quick and easy way to create your
           professional resume from over 30 design templates. Create a resume
           using our AI-powered online resume wizard, plus take advantage of

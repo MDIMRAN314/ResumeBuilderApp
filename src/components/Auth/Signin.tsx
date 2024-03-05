@@ -71,7 +71,7 @@ export default function Signin() {
         if (result) {
           navigate("/");
         } else {
-          navigate("/login");
+          navigate("/signin");
         }
       }
     } catch (error) {

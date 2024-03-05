@@ -13,6 +13,8 @@ import dayjs from "dayjs";
 import { EducationEntry } from "../../features/education/EducationSlice";
 import AddModeratorIcon from "@mui/icons-material/AddModerator";
 import { AwardsAndAchievementEntry } from "../../features/awardsAndAchievement/AwardsAndAchievementSlice";
+import { BookOnlineOutlined } from "@mui/icons-material";
+import { CertificationEntry } from "../../features/certifications/CertificationSlice";
 
 const Template_03 = () => {
   const personalInfo = useSelector((state: RootState) => state.personalInfo);
@@ -39,7 +41,6 @@ const Template_03 = () => {
                   <div className="temp2-fname">{personalInfo?.firstName}</div>
                   <div className="temp2-lname">{personalInfo?.lastName}</div>
                   <hr />
-                  {/* <div className="temp2-desg">Web Developer</div> */}
                   <div className="temp2-loc">
                     <span>
                       <LocationOnIcon />
@@ -92,13 +93,6 @@ const Template_03 = () => {
                       </div>
                     )
                   )}
-                  {skills.entries.map((entry: SkillsEntry, index: number) => {
-                    return (
-                      <div className="temp2-skill" key={index}>
-                        {entry.skill}
-                      </div>
-                    );
-                  })}
                 </div>
               </div>
 
@@ -214,18 +208,23 @@ const Template_03 = () => {
                 </div>
 
                 {/* interests section */}
-                {/* <div className="temp2-interests">
+                <div className="temp2-interests">
                   <div className="temp2-interest-heading">
                     <span>
-                      <InterestsIcon />
+                      <BookOnlineOutlined />
                     </span>
-                    <span>Interests</span>
+                    <span>Certifications</span>
                   </div>
                   <div className="temp2-interest-content">
-                    <button>Travelling</button>
-                    <button>Reading</button>
+                    <ul>
+                      {certification.entries.map(
+                        (entry: CertificationEntry, index: number) => {
+                          return <li key={index}>{entry.certificate}</li>;
+                        }
+                      )}
+                    </ul>
                   </div>
-                </div> */}
+                </div>
               </div>
             </Paper>
           </div>

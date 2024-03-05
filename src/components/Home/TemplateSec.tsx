@@ -8,35 +8,33 @@ import "./scss/partials/_template.scss";
 const TemplateSec = () => {
   return (
     <section className="tempContainer">
-      <div className="tempHeading">
-        <h1 className="h1">
+        <h1 className="template-heading">
           Pick one of many world-class templates and build your resume in
           minutes
         </h1>
-      </div>
 
-      <main className="templates">
-        <div>
+      <div className="templates">
+        <div  className="card" id="template1">
           <Link to="/resume/resume">
             <img src={re3} alt="" />
           </Link>
         </div>
-        <div>
+        <div className="card" id="template2">
           <Link to="/resume/resume_1">
             <img src={re1} alt="" />
           </Link>
         </div>
-        <div>
+        <div className="card" id="template3">
           <Link to="/resume/resume_2">
             <img src={re2} alt="" />
           </Link>
         </div>
-        <div>
+        <div className="card" id="template4">
           <Link to="/resume/resume_3">
             <img src={re3} alt="" />
           </Link>
         </div>
-      </main>
+      </div>
 
       {/* <div className="temp-btn">
         <button>See All Templates</button>

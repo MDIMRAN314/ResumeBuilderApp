@@ -60,7 +60,7 @@ const ResumeContainer: React.FC = () => {
           </Box>
         </>
       ) : (
-        navigate("/login")
+        navigate("/signin")
       )}
     </>
   );

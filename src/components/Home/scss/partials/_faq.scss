@@ -14,12 +14,7 @@
   flex-wrap: wrap;
 }
 .faq-left-content {
-  width: 47%;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-  flex-basis: 42%;
+  width: 45%;
   div {
     font-family: "Lato", sans-serif;
     font-weight: 600;
@@ -28,11 +23,10 @@
   }
 }
 .faq-right-content {
-  width: 58%;
   display: flex;
   flex-direction: column;
   gap: 2em;
-  flex-basis: 53%;
+  flex-basis: 55%;
 }
 
 .expand {
@@ -49,8 +43,7 @@
   border-top: 1px solid #ef59a5;
 }
 
-//media queries--------
-@media (max-width: 800px) {
+@media (max-width: 768px) {
   .faq-content {
     display: flex;
     flex-direction: column;
@@ -59,5 +52,7 @@
   }
   .faq-left-content {
     padding: 0;
+    width: 100%;
+    text-align: center;
   }
 }

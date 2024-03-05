@@ -15,8 +15,8 @@
   .bannerContainer {
     width: 100%;
     display: flex;
-    padding: 1rem 6rem;
     justify-content: space-around;
+    padding: 2% 5%;
   }
   .bannerImg {
     position: relative;
@@ -39,17 +39,16 @@
     }
   }
   .bannerContent {
-    width: 60%;
-    height: 100%;
-    padding-top: 3rem;
+    width: 50%;
     h1 {
-      font-size: 3.4rem;
-      width: 55%;
+      font-size: 3.6rem;
+      width: 100%;
+      padding-bottom: 2%;
       font-weight: 500;
-      padding-bottom: 3rem;
       color: rgba(26, 26, 26, 0.973);
       span {
         background: $bg-color;
+        font-weight: 700;
         -webkit-background-clip: text;
         background-clip: text;
         color: transparent;
@@ -58,25 +57,28 @@
     .para {
       font-size: 1.8rem;
       color: rgba(26, 26, 26, 0.973);
-      padding-bottom: 3rem;
     }
-    .create-button {
-      padding: 1rem 3rem;
-      border-radius: 0.6rem;
-      background-color: transparent;
-      font-size: 1.4rem;
-      font-weight: 500;
-      color: transparent;
-      cursor: pointer;
-      overflow: hidden;
-      border: none;
-      color: $text-color;
-      background: $bg-color;
-      transition: background-position 0.5s ease;
-      &:hover {
-        background-position: 100% 0;
-        background: $hover-color;
-        background-size: 200% 100%;
+    .btn-group {
+      display: flex;
+      padding-top: 2rem;
+      .create-button {
+        padding: 1rem 3rem;
+        border-radius: 0.6rem;
+        background-color: transparent;
+        font-size: 1.4rem;
+        font-weight: 500;
+        color: transparent;
+        cursor: pointer;
+        overflow: hidden;
+        border: none;
+        color: $text-color;
+        background: $bg-color;
+        transition: background-position 0.5s ease;
+        &:hover {
+          background-position: 100% 0;
+          background: $hover-color;
+          background-size: 200% 100%;
+        }
       }
     }
   }
@@ -104,16 +106,47 @@
     animation: marqueeAnimation 20s linear infinite;
   }
   .paraAbout {
-    width: 100%;
-    height: 10rem;
-    padding: 1.6rem 6rem;
-    p {
+    padding: 2% 5%;
+    .about-para {
       font-size: 1.4rem;
       font-weight: 400;
-      padding-bottom: 1rem;
       color: rgba(26, 26, 26, 0.867);
       text-align: center;
-      padding-top: 1.5rem;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .bannerContainer {
+      flex-direction: column;
+      align-items: center;
+
+      .bannerContent {
+        width: 100%;
+        h1 {
+          font-size: 2.8rem;
+          width: 100%;
+          text-align: center;
+        }
+        .para {
+          text-align: center;
+        }
+        .btn-group {
+          text-align: center;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+      }
+      .hirePara {
+        text-align: center;
+      }
+      .paraAbout {
+        padding: 2%;
+        .about-para {
+          font-size: 1.2rem;
+          text-align: center;
+        }
+      }
     }
   }
 }

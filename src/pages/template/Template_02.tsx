@@ -17,7 +17,7 @@ import { SkillsEntry } from "../../features/skills/SkillsSlice";
 import { AutoAwesomeMosaicRounded } from "@mui/icons-material";
 
 
-const Template_02 = () => {
+const Template_02: React.FC = () => {
   const personalInfo = useSelector((state: RootState) => state.personalInfo);
   const education = useSelector((state: RootState) => state.education);
   const workExperience = useSelector(
@@ -29,15 +29,6 @@ const Template_02 = () => {
     (state: RootState) => state.awardsAndAchievement
   );
   const certification = useSelector((state: RootState) => state.certification);
-
-  // const [value, setValue] = useState<number | null>(3);
-  // console.log(value);
-  // const handleChange = (
-  //   _event: React.ChangeEvent<{}>,
-  //   newValue: number | null
-  // ) => {
-  //   setValue(newValue);
-  // };
 
   return (
     <div>

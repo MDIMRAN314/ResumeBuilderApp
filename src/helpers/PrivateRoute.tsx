@@ -13,10 +13,10 @@ type Props = {
 
 const PrivateRoute = ({ children }: Props) => {
   const userContext = useContext(UserContextApi);
-  let foundUser = userContext?.authState.payload;
+  const foundUser = userContext?.authState.payload;
 
   if (!foundUser) {
-    return <Navigate to="/login" />;
+    return <Navigate to="/signin" />;
   } else {
     return <>{children}</>;
   }
