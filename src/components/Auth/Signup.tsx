@@ -15,30 +15,25 @@ import SwipeableTextMobileStepper from "../../carousel/Carousel";
 import logo from "../../assets/reslogo2.jpg";
 import birdjson from "../../lottiefiles/bird.json";
 import Lottie from "lottie-react";
-
 const defaultTheme = createTheme();
 export default function Signup() {
   const navigate = useNavigate();
   const contextValue = useContext(UserContextApi);
   const signup = contextValue?.signup;
-
   const [formData, setFormData] = useState<PayloadProps>({
     firstName: "",
     lastName: "",
     email: "",
     password: "",
   });
-
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-
     if (signup) {
       signup(formData);
-      navigate("/login");
+      navigate("/signin");
       window.location.reload();
     }
   };
-
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
     setFormData((prevFormData) => ({
@@ -46,13 +41,15 @@ export default function Signup() {
       [name]: value,
     }));
   };
-
   return (
     <ThemeProvider theme={defaultTheme}>
       <Grid container component="main" sx={{ height: "100vh", width: "100%" }}>
         <Grid
           item
+          xs={12}
+          sm={4}
           md={6}
+          lg={6}
           sx={{
             display: "flex",
             justifyContent: "center",
@@ -63,8 +60,16 @@ export default function Signup() {
             <SwipeableTextMobileStepper />
           </Container>
         </Grid>
-
-        <Grid item xs={12} sm={8} md={6} component={Paper} elevation={6} square>
+        <Grid
+          item
+          xs={12}
+          sm={8}
+          md={6}
+          lg={6}
+          component={Paper}
+          elevation={6}
+          square
+        >
           <Box
             sx={{
               marginTop: 8,
@@ -86,34 +91,34 @@ export default function Signup() {
                 src={logo}
                 alt="Logo"
                 style={{
-                  width: "100%",
-                  height: "100%",
+                  width: "80%",
+                  height: "80%",
                   objectFit: "cover",
                 }}
               />
+              <Lottie
+                animationData={birdjson}
+                style={{ height: "80px", width: "80px" }}
+              />
             </Box>
-            <Lottie
-              animationData={birdjson}
-              style={{ height: "80px", width: "80px" }}
-            />
           </Box>
           <Box
             sx={{
-              my: 7,
-              mx: 7,
+              my: 6,
+              mx: 10,
               display: "flex",
               flexDirection: "column",
               alignItems: "flex-start",
             }}
           >
-            <Box component="form" onSubmit={handleSubmit}>
+            <Box component="form" onSubmit={handleSubmit} sx={{ p: 5 }}>
               <Grid container spacing={2}>
                 <Grid item xs={12} sm={6}>
                   <TextField
                     autoComplete="given-name"
                     name="firstName"
                     required
-                    fullWidth
+                    style={{ width: "100%" }}
                     id="firstName"
                     value={formData.firstName}
                     onChange={handleInputChange}

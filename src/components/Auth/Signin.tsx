@@ -20,29 +20,21 @@ import { NavLink, useNavigate } from "react-router-dom";
 import { Container } from "@mui/material";
 import logo from "../../assets/reslogo2.jpg";
 import lockjson from "../../lottiefiles/lock.json";
-// import resumeicon2 from "../../lottiefiles/resumeicon2.json";
 import resumeicon3 from "../../lottiefiles/resumeicon3.json";
-
 const defaultTheme = createTheme();
 export default function Signin() {
   const navigate = useNavigate();
   const contextValue = useContext(UserContextApi);
-
   const signIn = contextValue?.signIn;
-
   const data = useContext(UsersContextApi);
   const users = data?.userData;
-
   const [showPassword, setShowPassword] = React.useState(false);
-
   const handleClickShowPassword = () => setShowPassword((show) => !show);
-
   const handleMouseDownPassword = (
     event: React.MouseEvent<HTMLButtonElement>
   ) => {
     event.preventDefault();
   };
-
   type AuthType = {
     email: string;
     password: string;
@@ -56,15 +48,12 @@ export default function Signin() {
     const { value } = e.target;
     setAuthData({ ...authData, email: value });
   };
-
   const handlePasswordChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target;
     setAuthData({ ...authData, password: value });
   };
-
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
     try {
       if (signIn && users) {
         const result = signIn(authData, users);
@@ -78,7 +67,6 @@ export default function Signin() {
       console.error("Error during authentication:", error);
     }
   };
-
   return (
     <>
       <ThemeProvider theme={defaultTheme}>
@@ -89,7 +77,10 @@ export default function Signin() {
         >
           <Grid
             item
+            xs={12}
+            sm={6}
             md={6}
+            lg={6}
             sx={{
               display: "flex",
               justifyContent: "center",
@@ -106,17 +97,18 @@ export default function Signin() {
           <Grid
             item
             xs={12}
-            sm={8}
+            sm={6}
             md={6}
+            lg={6}
             component={Paper}
             elevation={6}
             square
           >
             <Box
               sx={{
-                mt: 10,
+                mt: 3,
                 display: "flex",
-                justifyContent: "center",
+                flexDirection: "column",
                 alignItems: "center",
               }}
             >
@@ -133,20 +125,20 @@ export default function Signin() {
                   src={logo}
                   alt="Logo"
                   style={{
-                    width: "100%",
-                    height: "100%",
+                    width: "80%",
+                    height: "80%",
                     objectFit: "cover",
                   }}
                 />
+                <Lottie
+                  animationData={birdjson}
+                  style={{ height: "80px", width: "80px" }}
+                />
               </Box>
-              <Lottie
-                animationData={birdjson}
-                style={{ height: "80px", width: "80px" }}
-              />
             </Box>
             <Box
               sx={{
-                my: 5,
+                my: 3,
                 display: "flex",
                 flexDirection: "column",
                 alignItems: "center",
@@ -156,9 +148,16 @@ export default function Signin() {
                 animationData={lockjson}
                 style={{ height: "80px", width: "80px", color: "#1565C0" }}
               />
-
-              <Box component="form" onSubmit={handleSubmit} sx={{ mt: 1 }}>
-                <FormControl variant="outlined" fullWidth margin="normal">
+              <Box
+                component="form"
+                onSubmit={handleSubmit}
+                sx={{ mt: 2, p: 5 }}
+              >
+                <FormControl
+                  variant="outlined"
+                  margin="normal"
+                  style={{ width: "100%" }}
+                >
                   <InputLabel htmlFor="outlined-adornment-email">
                     Email Address
                   </InputLabel>
@@ -172,8 +171,11 @@ export default function Signin() {
                     autoFocus
                   />
                 </FormControl>
-
-                <FormControl variant="outlined" fullWidth margin="normal">
+                <FormControl
+                  variant="outlined"
+                  style={{ width: "100%" }}
+                  margin="normal"
+                >
                   <InputLabel htmlFor="outlined-adornment-password">
                     Password
                   </InputLabel>
@@ -198,16 +200,21 @@ export default function Signin() {
                     label="Password"
                   />
                 </FormControl>
-
-                <Button
-                  type="submit"
-                  fullWidth
-                  variant="contained"
-                  sx={{ mt: 3, mb: 2, p: 1.4 }}
+                <Box
+                  component="div"
+                  display="flex"
+                  justifyContent="center"
+                  alignItems="center"
                 >
-                  Sign In
-                </Button>
-
+                  <Button
+                    type="submit"
+                    style={{ width: "100%" }}
+                    variant="contained"
+                    sx={{ mt: 3, mb: 2, p: 1.4 }}
+                  >
+                    Sign In
+                  </Button>
+                </Box>
                 <Grid
                   item
                   display="flex"

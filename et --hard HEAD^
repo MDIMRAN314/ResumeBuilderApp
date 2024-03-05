@@ -1,0 +1,147 @@
+[33mcommit dd14a87afed9729d82d707e50e350445f10349e6[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Merge: f963a61 604990e
+Author: MDIMRAN314 <imd4905@gmail.com>
+Date:   Tue Mar 5 15:41:43 2024 +0530
+
+    Merge branch 'main' of https://github.com/MDIMRAN314/ResumeBuilderApp
+
+[33mcommit f963a6175386b8f28cce79003283b891187503c1[m
+Author: MDIMRAN314 <imd4905@gmail.com>
+Date:   Tue Mar 5 15:41:37 2024 +0530
+
+    Update template.scss, WorkExperienceSlice.ts, index.html, and ResumePreview.tsx
+
+[33mcommit 604990e8c1916b563c5f67db91fe22aac9c8086e[m
+Author: Dhanush901 <dhanush09j@gmail.com>
+Date:   Tue Mar 5 15:31:34 2024 +0530
+
+    signin and signup are responsive now
+
+[33mcommit cfad73b31ee1015e4a2a2094b5d754828c888806[m
+Author: MDIMRAN314 <imd4905@gmail.com>
+Date:   Tue Mar 5 13:59:07 2024 +0530
+
+    Update navigation links and routes
+
+[33mcommit eea7d3d3491217775f85ad043bc94d907dcb766e[m
+Author: MDIMRAN314 <imd4905@gmail.com>
+Date:   Tue Mar 5 13:04:28 2024 +0530
+
+    Fix navigation links, bugs and update template and responsiveness
+
+[33mcommit 5b0ef3cb1fbde7c91506e0706c49d729328015ea[m
+Author: MDIMRAN314 <imd4905@gmail.com>
+Date:   Mon Mar 4 17:43:56 2024 +0530
+
+    Fixed Navigation bar and added validation to forms
+
+[33mcommit 954bd6ab7c8c000dc9cfd5e4f706cd9adb3d343e[m
+Merge: 086296e 36dd4fa
+Author: Md Imran <imd4905@gmail.com>
+Date:   Wed Feb 28 01:33:47 2024 +0530
+
+    Add Carosul component and update context and form files
+
+[33mcommit 086296e472b1fd743d98eb68048214323a76c0f5[m
+Author: Md Imran <imd4905@gmail.com>
+Date:   Wed Feb 28 01:31:14 2024 +0530
+
+    Refactor code for improved performance
+
+[33mcommit 6a70559f6122be06973e8c46db3ba57402421782[m
+Author: Md Imran <imd4905@gmail.com>
+Date:   Wed Feb 28 01:27:30 2024 +0530
+
+    Remove unnecessary empty lines in Signup component
+
+[33mcommit 36dd4fa5b8ee9d5593c7eeb78f0f239a9e796903[m
+Author: dhanush901 <reddybhdhanush@gmail.com>
+Date:   Fri Feb 23 17:10:58 2024 +0530
+
+    sigup and sign in final output added
+
+[33mcommit 8135307f503e2c67a305610d71cf1312dc2b5561[m
+Merge: 56ed798 9e4ac4b
+Author: dhanush901 <reddybhdhanush@gmail.com>
+Date:   Fri Feb 23 10:55:43 2024 +0530
+
+    changes
+
+[33mcommit 56ed79851872dd45c5ce52e57ea693e4f7e472ab[m
+Author: dhanush901 <reddybhdhanush@gmail.com>
+Date:   Fri Feb 23 10:51:11 2024 +0530
+
+    signin page is modified
+
+[33mcommit 89e9d32505b5e8a88390a5d8c86c84dc66de22ac[m
+Author: dhanush901 <reddybhdhanush@gmail.com>
+Date:   Fri Feb 23 10:47:25 2024 +0530
+
+    signin page is modified
+
+[33mcommit 9e4ac4be252faae70c1e99309fcb964e715baed7[m
+Merge: 5d6b3bf f25be5b
+Author: Md Imran <imd4905@gmail.com>
+Date:   Fri Feb 23 09:37:26 2024 +0530
+
+    Merge branch 'main' of https://github.com/MDIMRAN314/ResumeBuilderApp
+
+[33mcommit 5d6b3bf1984a74c92673fbd947803c6f0286800e[m
+Author: Md Imran <imd4905@gmail.com>
+Date:   Thu Feb 22 18:44:44 2024 +0530
+
+    Refactor code for improved performance
+
+[33mcommit f25be5b3baba83773f945bd073985c6b99c182e7[m
+Author: dhanush901 <reddybhdhanush@gmail.com>
+Date:   Thu Feb 22 11:57:17 2024 +0530
+
+    signup is working properly
+
+[33mcommit 26be6b27b3407b8972c44d5a52d03239a293b44c[m
+Author: dhanush901 <reddybhdhanush@gmail.com>
+Date:   Thu Feb 22 10:41:11 2024 +0530
+
+    validation added sucessfully
+
+[33mcommit 97765e0128998e18695261565ba4cb572796863b[m
+Author: dhanush901 <reddybhdhanush@gmail.com>
+Date:   Thu Feb 22 10:39:47 2024 +0530
+
+    validation added sucessfully
+
+[33mcommit 0c8cb02bc2aaf79ba38449e9da5033bc8b76fa72[m
+Author: dhanush901 <reddybhdhanush@gmail.com>
+Date:   Thu Feb 22 10:37:28 2024 +0530
+
+    validation completed sucessfully
+
+[33mcommit daba8fdb4ed50cef16bc9425a1a9bb6f3cabeb0f[m
+Author: Md Imran <imd4905@gmail.com>
+Date:   Wed Feb 21 16:23:15 2024 +0530
+
+    Update code: App.tsx, ResumePreview.tsx, package.json, db.json, _nav.scss, Home.tsx, TemplateSec.tsx, Signin.tsx, _template.scss, Banner.tsx
+
+[33mcommit dbef593571612b431793cbdfed7f1d7c5c22389d[m
+Author: Md Imran <imd4905@gmail.com>
+Date:   Wed Feb 21 16:21:17 2024 +0530
+
+    Update code formatting and fix minor bugs
+
+[33mcommit 8ae9eb82e7a6229418bd4bf9132aa1dd2e9f9ad1[m
+Author: Md Imran <imran@mallow-tech.com>
+Date:   Wed Feb 21 10:56:07 2024 +0530
+
+    initial commit
+
+[33mcommit 65df446a9c2a15395fcac5b881e324fbb0d07201[m
+Author: Md Imran <imran@mallow-tech.com>
+Date:   Wed Feb 21 10:53:01 2024 +0530
+
+    Refactor resume container and add download functionality
+
+[33mcommit 568d26934baa2c7c2e90adde1fa04b948b605ce5[m
+Author: dhanush901 <reddybhdhanush@gmail.com>
+Date:   Tue Feb 20 11:04:17 2024 +0530
+
+    added succesfully
