@@ -6,6 +6,7 @@ import all from "../../assets/black-logo-1.svg";
 import { Link } from "react-router-dom";
 import { useContext, useEffect, useState } from "react";
 import { UserContextApi } from "../../context/AuthContext";
+import { Link as ScrollLink } from "react-scroll";
 const Banner = () => {
   const userContext = useContext(UserContextApi);
   const foundUser = userContext?.authState.payload;
@@ -44,9 +45,16 @@ const Banner = () => {
           </p>
           <span className="btn-group">
             {foundUser ? (
-              <Link to="/resume/resume">
+              <ScrollLink
+                activeClass="active"
+                to="tempContainer"
+                spy={true}
+                smooth={true}
+                offset={0}
+                duration={500}
+              >
                 <button className="create-button">Create My Resume Now</button>
-              </Link>
+              </ScrollLink>
             ) : (
               <Link to="/signin">
                 <button className="create-button">Create My Resume Now</button>

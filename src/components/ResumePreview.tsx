@@ -72,7 +72,7 @@ const ResumePreview: React.FC = () => {
             {workExperience.entries.map(
               (entry: WorkExperienceEntry, index: number) => (
                 <Typography key={index} variant="body2" sx={{ mt: 1 }}>
-                  {dayjs(entry.start_date).format("MMM YYYY")} -{" "}
+                  {dayjs(entry.start_date).format("MMM YYYY")} -
                   {dayjs(entry.end_date).format("MMM YYYY")}
                   <Typography>
                     {entry.designation}, {entry.company} - {entry.location}

@@ -2,7 +2,7 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 export interface WorkExperienceEntry {
   start_date: string;
-  end_date: string;
+  end_date?: string;
   designation: string;
   company: string;
   location?: string;
