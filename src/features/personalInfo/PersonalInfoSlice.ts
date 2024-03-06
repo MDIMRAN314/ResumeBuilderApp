@@ -31,8 +31,4 @@ const personalInfoSlice = createSlice({
 
 export const { updatePersonalInfo } = personalInfoSlice.actions;
 
-// export const selectPersonalInfo = (state: {
-//   personalInfo: PersonalInfoState;
-// }) => state.personalInfo;
-
 export default personalInfoSlice.reducer;
