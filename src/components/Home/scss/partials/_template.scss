@@ -92,7 +92,7 @@
     }
 
     .card {
-      width: 32%;
+      width: 28%;
       height: 100%;
       border-radius: 1rem;
       background: rgba(212, 191, 231, 0.343);
@@ -108,6 +108,7 @@
         height: 100%;
         cursor: pointer;
         transition: transform 0.2s ease-in-out;
+        object-fit: contain;
 
         &:hover {
           transform: scale(1.01);
