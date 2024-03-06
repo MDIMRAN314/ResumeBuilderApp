@@ -81,7 +81,7 @@ const UserContextProvider = ({ children }: UserContextProviderProps) => {
 
   return (
     <>
-      <Toaster></Toaster>
+      <Toaster />
       <UserContextApi.Provider value={contextValue}>
         {children}
       </UserContextApi.Provider>

@@ -2,30 +2,32 @@ import React from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import logo from "../../assets/reslogo2.jpg";
 import html2pdf from "html2pdf.js";
-import { PayloadProps } from './../../types/PayloadType';
+// import { PayloadProps } from "./../../types/PayloadType";
+import toast from "react-hot-toast";
 
 export interface FoundUserType {
-  foundUser: PayloadProps | null | undefined ;
+  foundUser: string | null | undefined;
 }
 
-const NavigationBar: React.FC<FoundUserType> = ({ foundUser}) => {
+const NavigationBar: React.FC<FoundUserType> = ({ foundUser }) => {
   const { pathname } = useLocation();
   const navigate = useNavigate();
-
 
   const handleLogout = () => {
     navigate("/");
     window.localStorage.removeItem("login");
     window.location.reload();
+    toast.success("Logged out successfully");
   };
 
+  //* to download the resume using html2pdf
   const downloadResume = async () => {
     const element = document.getElementById(pathname);
     if (element) {
       html2pdf(element, {
         margin: 0.5,
         filename: "resume.pdf",
-        image: { type: "jpeg", quality: 0.98 },
+        image: { type: "jpeg", quality: 1 },
         html2canvas: { scale: 2 },
         jsPDF: { unit: "in", format: "a4", orientation: "portrait" },
       });
@@ -40,7 +42,7 @@ const NavigationBar: React.FC<FoundUserType> = ({ foundUser}) => {
         </Link>
       </li>
       <li>
-        <Link to="/">Templates</Link>
+        <Link to="/">Resume Templates</Link>
       </li>
       <li>
         <Link to="/">Cover Letters</Link>
@@ -75,7 +77,7 @@ const NavigationBar: React.FC<FoundUserType> = ({ foundUser}) => {
           <button onClick={downloadResume}>Download Resume</button>
         )}
       </li>
-      <li>Hi, {foundUser?.firstName}</li>
+      {/* <li>Hi, {foundUser?.firstName}</li> */}
     </ul>
   );
 

@@ -50,6 +50,7 @@ const Template_01: React.FC = () => {
                   {dayjs(entry.start_date).format("MMM YYYY")} -{" "}
                   {dayjs(entry.end_date).format("MMM YYYY")}
                 </p>
+                <p>{entry.designation}, {entry.company} - {entry.location}</p>  
                 <ul className="list-disc pb-4">
                   {Array.isArray(entry.roleDescription) &&
                     entry.roleDescription.map(

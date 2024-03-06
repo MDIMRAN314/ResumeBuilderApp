@@ -12,6 +12,7 @@ const Banner = () => {
   const foundUser = userContext?.authState.payload;
   const [currentBannerIndex, setCurrentBannerIndex] = useState(0);
   const bannerImages = [bannerimg1, bannerimg2, bannerimg3];
+  
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentBannerIndex(
