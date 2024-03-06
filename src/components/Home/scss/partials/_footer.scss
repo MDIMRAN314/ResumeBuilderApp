@@ -3,8 +3,8 @@
 }
 
 #footer-section {
+  border-top: 2px solid #efefef;
   padding: 3rem 0rem 5rem;
-  border-top: 0.2rem solid #eee;
   display: flex;
   justify-content: space-evenly;
 
@@ -50,6 +50,9 @@
 }
 
 .copyRight {
+  font-size: larger;
+  font-weight: 500;
+  letter-spacing: 1.4px;
   text-align: center;
-  padding: 0rem 2rem 2rem;
+  padding: 2rem;
 }

@@ -41,10 +41,10 @@ const Footer = () => {
           </figure>
           <Rating name="read-only" size="large" color="success" />
           <article className="social-links">
+            <LinkedInIcon fontSize="large" color="primary" />
             <InstagramIcon fontSize="large" />
-            <XIcon fontSize="large" />
-            <LinkedInIcon fontSize="large" />
-            <FacebookIcon fontSize="large" />
+            <XIcon fontSize="large" sx={{ color: "#000" }} />
+            <FacebookIcon fontSize="large" color="primary" />
           </article>
         </article>
         <article className="section-2">
@@ -66,7 +66,11 @@ const Footer = () => {
           ))}
         </article>
       </footer>
-      <h3 className="copyRight" >Copyright &copy; 2024 All rights reserved ResumeBuilder.com</h3>
+      <hr />
+      <h3 className="copyRight">
+        Copyright<sup>&copy;</sup> 2024 All rights reserved ResumeBuilder.com |
+        Design by UI Mavericks team
+      </h3>
     </>
   );
 };

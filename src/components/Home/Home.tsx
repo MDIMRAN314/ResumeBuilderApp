@@ -9,7 +9,6 @@ import { Faq } from "./Faq";
 export const Home = () => {
   const userContext = useContext(UserContextApi);
   const foundUser = userContext?.authState.payload;
-  // const [user, setUser] = useState(foundUser)
 
   return (
     <>

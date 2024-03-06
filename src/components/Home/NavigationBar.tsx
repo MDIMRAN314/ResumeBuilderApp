@@ -1,16 +1,17 @@
 import React from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import logo from "../../assets/reslogo2.jpg";
-import { PayloadProps } from "../../types/PayloadType";
 import html2pdf from "html2pdf.js";
+import { PayloadProps } from './../../types/PayloadType';
 
 export interface FoundUserType {
-  foundUser: PayloadProps | null | undefined  ;
+  foundUser: PayloadProps | null | undefined ;
 }
 
 const NavigationBar: React.FC<FoundUserType> = ({ foundUser}) => {
   const { pathname } = useLocation();
   const navigate = useNavigate();
+
 
   const handleLogout = () => {
     navigate("/");
